@@ -2,6 +2,7 @@ require('dotenv').config();
 const { Sequelize } = require('sequelize');
 const fs = require('fs');
 const path = require('path');
+const { timeStamp } = require('console');
 const {
   DB_USER, DB_PASSWORD, DB_HOST,
 } = process.env;
@@ -34,8 +35,8 @@ const { Country, Activity } = sequelize.models;  //*******DECIA POKEMON!!!!
 
 // Aca vendrian las relaciones
 // Product.hasMany(Reviews);
-Country.belongsToMany(Activity, {through: 'country_activity'})
-Activity.belongsToMany(Country, {through: 'country_activity'})
+Country.belongsToMany(Activity, {through: 'country_activity'}, {timeStamps:false})
+Activity.belongsToMany(Country, {through: 'country_activity'}, {timeStamps:false})
 
 module.exports = {
   ...sequelize.models, // para poder importar los modelos así: const { Product, User } = require('./db.js');

@@ -6,7 +6,6 @@ export default function Card(props) {
     const dispatch = useDispatch();
     const country = useSelector((state) => state.country)
 
-
     return (
         <>
             <div>
