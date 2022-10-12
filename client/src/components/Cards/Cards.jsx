@@ -17,10 +17,10 @@ export default function Cards() {
     return (
         <>
             <div>
-                holis
                 {
                     allCountries?.map((c)=>(
                         <Card
+                        id={c.id}
                         name={c.name}
                         flag={c.flag}
                         region={c.region}                       
