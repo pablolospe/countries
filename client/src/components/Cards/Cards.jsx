@@ -20,6 +20,7 @@ export default function Cards() {
                 {
                     allCountries?.map((c)=>(
                         <Card
+                        key={c.id}
                         id={c.id}
                         name={c.name}
                         flag={c.flag}

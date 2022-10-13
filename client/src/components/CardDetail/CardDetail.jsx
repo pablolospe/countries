@@ -6,27 +6,43 @@ export default function CardDetail(props) {
   const dispatch = useDispatch();
   const id = props.match.params.id;
   const detail = useSelector((state) => state.countryDetail);
+  
 
   useEffect(() => {
     dispatch(getCountryDetail(id));
   }, [dispatch, id]);
 
   return (
-    <>
-      <div>
-        {detail?.map((c) => (
+    <div>
+      {detail?.map((c) => (
+        <div key={c.id}>
+          <h1>{c.name}</h1>
+          <img src={c.flag} alt='flag' />
+          <p>ID: {c.id}</p>
+          <p>Capital City: {c.capital}</p>
+          <p>Continent: {c.region}</p>
+          <p>Sub-Region: {c.subregion}</p>
+          <p>Area: {c.area} km²</p>
+          <p>Population: {c.population}</p>
+          <br/>
           <div>
-            <h1>{c.name}</h1>
-            <img src={c.flag} alt="flag" />
-            <p>{c.capital}</p>
-            <p>{c.region}</p>
-            <p>{c.subregion}</p>
-            <p>Area: {c.area}</p>
-            <p>Population: {c.population}</p>
+          Activities:
+          {c.activities?.map((ac) => (
+            <div key={ac.id}>
+              <h4>{ac.name}</h4>
+              <p>difficulty: {ac.difficulty}</p>
+              <p>duration: {ac.duration}</p>
+              <p>season: {ac.season}</p>
+            </div>
+          ))}
           </div>
-        ))}
-      </div>
-    
-    </>
+        </div>
+      ))}
+    </div>
   );
 }
+
+/*
+
+
+*/
