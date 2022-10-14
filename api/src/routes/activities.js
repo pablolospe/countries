@@ -14,8 +14,8 @@ const router = Router();
 
 router.post('/', async (req, res) => {
     try {
-        let { name, difficulty, duration, season, pais } = req.body;
-        if (!name || !pais || !difficulty || !duration || !season) return res.status(400).json('Missing inputs') 
+        let { name, difficulty, duration, season, countries } = req.body;
+        if (!name || !countries || !difficulty || !duration || !season) return res.status(400).json('Missing inputs') 
        
         if (difficulty < 1 || difficulty > 5) {
             res.status(400).json('Difficulty must be from 1 to 5')
@@ -25,11 +25,11 @@ router.post('/', async (req, res) => {
                 difficulty,
                 duration,
                 season,
-                pais,
+                countries,
             });
             const countries_activities = await Country.findAll({
                 where: {
-                    name: pais,
+                    name: countries,
                 },
             });
             newActivity.addCountry(countries_activities);

@@ -1,4 +1,4 @@
-import React, { useEffect, useParams } from "react";
+import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getCountryDetail } from "../../redux/actions/actions";
 
@@ -15,7 +15,7 @@ export default function CardDetail(props) {
   return (
     <div>
       {detail?.map((c) => (
-        <div key={c.id}>
+        <div>
           <h1>{c.name}</h1>
           <img src={c.flag} alt='flag' />
           <p>ID: {c.id}</p>
@@ -29,7 +29,7 @@ export default function CardDetail(props) {
           Activities:
           {c.activities?.map((ac) => (
             <div key={ac.id}>
-              <h4>{ac.name}</h4>
+              <p>{ac.name}</p>
               <p>difficulty: {ac.difficulty}</p>
               <p>duration: {ac.duration}</p>
               <p>season: {ac.season}</p>

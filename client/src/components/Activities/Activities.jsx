@@ -1,7 +1,4 @@
-import { Link, Route } from "react-router-dom";
-import React, { useEffect, useParams } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { getCountryDetail } from "../../redux/actions/actions";
+// import React, { useEffect, useParams } from "react";
 
 export default function Activities({id,name,difficulty,duration,season}) {
  

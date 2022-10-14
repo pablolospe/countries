@@ -1,8 +1,10 @@
 import React from 'react'
 import {useEffect} from 'react'
 import Card from '../Card/Card';
+import SearchBar from '../SearchBar/SearchBar';
 import { useDispatch, useSelector } from 'react-redux';
 import { getAllCountries } from '../../redux/actions/actions';
+
 
 
 
@@ -16,6 +18,9 @@ export default function Cards() {
 
     return (
         <>
+        <div><br/><SearchBar/><br/></div>
+
+
             <div>
                 {
                     allCountries?.map((c)=>(

@@ -3,6 +3,8 @@ import axios from 'axios'
 export const GET_ALL_COUNTRIES = 'GET_ALL_COUNTRIES';
 export const GET_COUNTRY_DETAIL = 'GET_COUNTRY_DETAIL';
 export const CREATE_ACTIVITY = 'CREATE_ACTIVITY';
+export const GET_COUNTRY_NAME = 'GET_COUNTRY_NAME';
+
 
 
 export const getAllCountries = () => (dispatch) =>
@@ -27,6 +29,20 @@ export function getCountryDetail(id) {
     };
 }
 
-export const createActivity = (values) =>{
-    return {type:CREATE_ACTIVITY, payload: values}
+export const createActivity = (values) => {
+    return { type: CREATE_ACTIVITY, payload: {...values} }
 };
+
+export function getCountryName(name) {
+    return async function (dispatch) {
+        try {
+            const countryDetail = await axios.get('http://localhost:3001/countries?name=' + name);
+            return dispatch({
+                type: GET_COUNTRY_NAME,
+                payload: countryDetail.data,
+            })
+        } catch (error) {
+            console.log(error);
+        }
+    }
+} 
