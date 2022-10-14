@@ -26,7 +26,7 @@ const reducer = (state = initialState, action) => {
         case GET_COUNTRY_NAME:
             return {
                 ...state,
-                countryDetail: action.payload
+                countries: action.payload
             }
         default:
             return { ...state }

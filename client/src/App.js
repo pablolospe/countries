@@ -23,6 +23,7 @@ function App() {
       <Route exact path={"/home/activities"} component={Activities} />
       <Route exact path={"/home/form"} component={Form} />
       <Route exact path={"/detail/:id"} component={CardDetail} />
+      <Route exact path={"/countries?name="} component={CardDetail} />
       <Route exact path={"/home/about"} component={About} />
     </div>
   );
