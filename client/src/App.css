@@ -39,4 +39,14 @@
 
 ul {
   list-style: none;
+  display: flex;
+  justify-content: space-between;
+}
+
+html { 
+  background: url(/src/pexels-andrea-piacquadio-3769138.jpg) no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
 }

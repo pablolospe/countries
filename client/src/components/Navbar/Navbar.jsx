@@ -1,4 +1,5 @@
 import React from "react";
+import SearchBar from '../SearchBar/SearchBar';
 import {Link} from "react-router-dom"
 
 const Navbar = () => {
@@ -10,9 +11,10 @@ const Navbar = () => {
                 {/* <li><Link to="/home/activities"> Activities </Link></li> */}
                 <li><Link to="/home/form"> Create Activity </Link></li>
                 <li><Link to="/home/about"> About </Link></li>
+                <li><SearchBar/></li>
             </ul>
         </div>
-            <hr />
+        <br/>
         </>
     )
 }

@@ -6,10 +6,10 @@ export default function Card({ id, name, flag, region }) {
     <>
       <div>
         <Link to={`/detail/${id}`}>
-          <img src={flag} alt="acá va la imagen" />
           <h3>{name}</h3>
+          <p>{region}</p>
+          <img src={flag} alt="acá va la imagen" />
         </Link>
-        <h4>continent: {region}</h4>
         <br />
       </div>
     </>
