@@ -1,10 +1,12 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { Link } from 'react-router-dom';
 import { getCountryName } from "../../redux/actions/actions";
 
 export default function SearchBar(props) {
 	const [countryName, setCountryName] = useState('');
 	const dispatch = useDispatch();
+	const [route, setRoute]= useState();
 
 	const handlerChange = (e) => {
 		setCountryName(e.target.value);
@@ -16,6 +18,8 @@ export default function SearchBar(props) {
 		setCountryName('');
 	};
 
+	
+	
 	return (
 		<>
 			<div>
@@ -28,7 +32,7 @@ export default function SearchBar(props) {
 						placeholder='Search...'
 						onChange={handlerChange}
 					/>
-					<button type='submit'>Search Country</button>
+					<button type='submit' >Search Country</button>
 				</form>
 			</div>
 		</>

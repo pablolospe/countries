@@ -15,9 +15,9 @@ export default function Paginado({countriesPerPage,allCountries,currentPage,next
            <button onClick={() => prevP()} >Previous</button>
 
           {
-            pageNumbers?.map(n => {
+            pageNumbers?.slice(0,26).map(n => {
               return (
-                <a key={n}> <button onClick={() => currentPage(n)} > {n} </button> </a>
+                <button key={n} onClick={() => currentPage(n)} > {n} </button>
               )
             })
           }

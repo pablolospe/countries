@@ -4,6 +4,7 @@ export const GET_ALL_COUNTRIES = 'GET_ALL_COUNTRIES';
 export const GET_COUNTRY_DETAIL = 'GET_COUNTRY_DETAIL';
 export const CREATE_ACTIVITY = 'CREATE_ACTIVITY';
 export const GET_COUNTRY_NAME = 'GET_COUNTRY_NAME';
+export const FILTER_BY_REGION = 'FILTER_BY_REGION';
 
 
 
@@ -46,3 +47,11 @@ export function getCountryName(name) {
         }
     }
 } 
+
+export function filterCountriesByRegion(payload){
+    console.log(payload);
+    return{
+        type: FILTER_BY_REGION,
+        payload,
+    }
+}
