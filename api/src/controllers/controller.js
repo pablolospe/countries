@@ -47,6 +47,28 @@ const getInfoDB = async () => {
     return countries;
 }
 
+const getActivity = async () => {
+    const activities = await Activity.findAll({
+        attributes: ["id", "name", "difficulty", "duration", "season"],
+        include: [
+            {
+                model: Country,
+                attributes: [
+                    "id",
+                    "name",
+                    "flag",
+                    "capital",
+                    "region",
+                    "subregion",
+                    "area",
+                    "population",
+                ],
+            }
+        ]
+    })
+    return activities;
+}
+
 
 // const createActivity = async (body) => {
 //     const { name, difficulty, duration, season, pais } = body;
@@ -72,4 +94,4 @@ const getInfoDB = async () => {
 
 
 
-module.exports = { getApiInfo, saveCountriesToDb, getInfoDB }
+module.exports = { getApiInfo, saveCountriesToDb, getInfoDB, getActivity }

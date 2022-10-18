@@ -5,6 +5,8 @@ export const GET_COUNTRY_DETAIL = 'GET_COUNTRY_DETAIL';
 export const CREATE_ACTIVITY = 'CREATE_ACTIVITY';
 export const GET_COUNTRY_NAME = 'GET_COUNTRY_NAME';
 export const FILTER_BY_REGION = 'FILTER_BY_REGION';
+export const ORDER_ALPHABETICALLY = 'ORDER_ALPHABETICALLY';
+export const ORDER_BY_POPULATION = 'ORDER_BY_POPULATION';
 
 
 
@@ -55,3 +57,20 @@ export function filterCountriesByRegion(payload){
         payload,
     }
 }
+
+export function orderAlphabetically(payload){
+    console.log(payload);
+    return{
+        type: ORDER_ALPHABETICALLY,
+        payload
+    }
+}
+
+export function orderByPopulation(payload){
+    console.log(payload);
+    return{
+        type: ORDER_BY_POPULATION,
+        payload
+    }
+}
+

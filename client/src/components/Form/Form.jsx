@@ -97,7 +97,7 @@ export default function Form(props) {
           <br />
           <br />
           
-            <ul><li >{input.countries.map(el=>el + ' ,')}</li></ul>
+          <ul><li >{input.countries.map(el=>el + ' ,')}</li></ul>
           <label>Country</label>
           <select onChange={handleSelected} name="country">
             <option onChange={handleSelected} >Choose...</option>
@@ -105,16 +105,6 @@ export default function Form(props) {
               <option key={c.name} value={c.name}>{c.name}</option>
             ))}
           </select>
-        
-         {/* <div>
-                    <label>Countries: </label>
-                    <select name="countries" onChange={handleSelected} multiple={false}>
-                        <option >Select one or more countries</option>
-                        {allCountries.map(country => 
-                            <option key={country.id} value={country.name}>{country.name}</option>)}
-                    </select>
-                </div> */}
-
           <br />
           <br />
           <button type="submit">CREATE</button>

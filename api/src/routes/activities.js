@@ -1,4 +1,5 @@
 const { Router } = require('express');
+const { getActivity } = require('../controllers/controller');
 const { Country, Activity } = require('../db');
 // const { createActivity } = require('../controllers/controller.js');
 
@@ -11,6 +12,22 @@ const router = Router();
 //     const bdFind = await bdData.find((data) => data.name.toLowerCase() === normalizedName);
 //     return bdFind === undefined? true : false;
 //   }
+
+router.get('/', async (req, res) => {
+    const { name } = req.query;
+    let allActivities = await getActivity();
+    if (name) {
+        let selectedActivity = await allActivities.filter(a => a.name.toLowerCase().includes(name.toLowerCase()));
+        selectedActivity.length ?
+            res.status(200).send(selectedActivity) :
+            res.status(404).send('Country not found');
+    } else {
+        res.status(200).send(allActivities)
+    }
+    // Obtener los países que coincidan con el nombre pasado como query parameter 
+    // (No necesariamente tiene que ser una matcheo exacto)
+    // Si no existe ningún país mostrar un mensaje adecuado
+})
 
 router.post('/', async (req, res) => {
     try {
