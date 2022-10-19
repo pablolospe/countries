@@ -18,16 +18,7 @@ router.get('/', async (req, res) => {
     } else {
         res.status(200).send(allCountries)
     }
-    // Obtener los países que coincidan con el nombre pasado como query parameter 
-    // (No necesariamente tiene que ser una matcheo exacto)
-    // Si no existe ningún país mostrar un mensaje adecuado
 })
-
-
-
-
-
-
 
 router.get("/:id", async (req, res) => {
     const { id } = req.params;
