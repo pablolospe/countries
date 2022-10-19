@@ -12,7 +12,7 @@ export default function Paginado({countriesPerPage,allCountries,currentPage,next
 
     return (
         <ul>
-           <button onClick={() => prevP()} >Previous</button>
+           <button onClick={() => prevP()} >Prev</button>
 
           {
             pageNumbers?.slice(0,26).map(n => {

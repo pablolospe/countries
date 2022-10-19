@@ -1,13 +1,14 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { getCountryName } from "../../redux/actions/actions";
+import { getCountryName } from "../../redux/actions/actions.js";
 
 export default function SearchBar(props) {
 	const [countryName, setCountryName] = useState('');
 	const dispatch = useDispatch();
-	// const [route, setRoute]= useState();
 
 	const handlerChange = (e) => {
+		// e.preventDefault()
+		
 		setCountryName(e.target.value);
 	};
 
@@ -15,9 +16,8 @@ export default function SearchBar(props) {
 		e.preventDefault();
 		dispatch(getCountryName(countryName));
 		setCountryName('');
+		// console.log('anda?'+ countryName);
 	};
-
-	
 	
 	return (
 		<>

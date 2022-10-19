@@ -1,4 +1,11 @@
-import { GET_ALL_COUNTRIES, GET_COUNTRY_DETAIL, CREATE_ACTIVITY, GET_COUNTRY_NAME, FILTER_BY_REGION, ORDER_ALPHABETICALLY, ORDER_BY_POPULATION } from "../actions/actions.js";
+import { GET_ALL_COUNTRIES, 
+    GET_COUNTRY_DETAIL, 
+    CREATE_ACTIVITY, 
+    GET_COUNTRY_NAME, 
+    FILTER_BY_REGION, 
+    ORDER_ALPHABETICALLY, 
+    GET_ALL_ACTIVITIES 
+} from "../actions/actions.js";
 
 const initialState = {
     countries: [],
@@ -28,7 +35,7 @@ const reducer = (state = initialState, action) => {
         case GET_COUNTRY_NAME:
             return {
                 ...state,
-                countries: action.payload
+                currentCountries: action.payload
             }
         case FILTER_BY_REGION:
             const allCountries = state.countries;
@@ -39,13 +46,11 @@ const reducer = (state = initialState, action) => {
                 currentCountries: statusFiltered,
             }
         case ORDER_ALPHABETICALLY:
-            //COPIA UNA REFERENCIA??
+            let sortedArrByPopulation = state.countries;
             let orderObject = state.countries;
             let sortedArr = [];
 
-            if (action.payload === 'unordered') sortedArr = orderObject;
-
-            else if (action.payload === 'asc') {
+            if (action.payload === 'asc') {
                 sortedArr = orderObject.sort(function (a, b) {
                     if (a.name > b.name) { return 1 }
                     if (b.name > a.name) { return -1 }
@@ -58,27 +63,28 @@ const reducer = (state = initialState, action) => {
                     if (b.name > a.name) { return 1 }
                     else return 0;
                 })
-            }           
-            return {
-                ...state,
-                currentCountries: sortedArr,
-            }
-
-        case ORDER_BY_POPULATION:
-            let sortedArrByPopulation = state.countries;
-            if (action.payload === 'desc') sortedArrByPopulation.sort(function (a, b) { 
+            }          
+            else if (action.payload === 'less') 
+                sortedArr = sortedArrByPopulation.sort(function (a, b) { 
                 if (a.population > b.population) return 1 
                 if (b.population > a.population) return -1 
                 else return 0;
-            })
-            if (action.payload === 'asc') sortedArrByPopulation.sort(function (a, b) { 
+            }) 
+            else if (action.payload === 'more') 
+                sortedArr = sortedArrByPopulation.sort(function (a, b) { 
                 if (a.population > b.population) return -1 
                 if (b.population > a.population) return 1 
                 else return 0;
              })
             return {
                 ...state,
-                currentCountries: sortedArrByPopulation,
+                currentCountries: sortedArr,
+            }
+
+        case GET_ALL_ACTIVITIES:
+            return{
+                ...state,
+                activities: action.payload
             }
         default:
             return { ...state }

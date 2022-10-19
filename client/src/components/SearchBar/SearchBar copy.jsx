@@ -7,7 +7,7 @@ export default function SearchBar(props) {
   const dispatch = useDispatch();
   
   const handleInputChange = (e) => {
-    // e.preventDefault()
+    e.preventDefault()
     setName(e.target.value);
     console.log(name);
   };

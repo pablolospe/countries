@@ -1,0 +1,16 @@
+.flag{
+    border-radius: 20px;
+    box-shadow: -10px 10px 20px black;
+}
+
+p{
+    font-weight: bold;
+}
+
+.card{
+    /* border: solid 2px; */
+    padding: 5px;
+    border-radius: 20px;
+    box-shadow: -10px 10px 30px black;
+
+}

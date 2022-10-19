@@ -14,13 +14,13 @@ import Home from './components/Home/Home'
 function App() {
   return (
     <div className="App">
-      <h3>Henry Countries</h3>
+      
       
       <Route exact path={"/"} component={LandingPage} />
       <Route path={"/home"} component={Navbar} />
-      <Route path={"/detail"} component={Navbar} />
+      <Route path={"/activities"} component={Navbar} />
       <Route exact path={"/home"} component={Home} />
-      <Route exact path={"/home/activities"} component={Activities} />
+      <Route exact path={"/activities"} component={Activities} />
       <Route exact path={"/home/form"} component={Form} />
       <Route exact path={"/detail/:id"} component={CardDetail} />
       <Route exact path={"/countries?name="} component={CardDetail} />

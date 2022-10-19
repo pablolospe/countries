@@ -50,3 +50,8 @@ html {
   -o-background-size: cover;
   background-size: cover;
 }
+
+a:link, a:visited, a:active {
+  text-decoration:none;
+  color: lightgray;
+}

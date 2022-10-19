@@ -1,6 +1,7 @@
 import axios from 'axios'
 
 export const GET_ALL_COUNTRIES = 'GET_ALL_COUNTRIES';
+export const GET_ALL_ACTIVITIES = 'GET_ALL_ACTIVITIES';
 export const GET_COUNTRY_DETAIL = 'GET_COUNTRY_DETAIL';
 export const CREATE_ACTIVITY = 'CREATE_ACTIVITY';
 export const GET_COUNTRY_NAME = 'GET_COUNTRY_NAME';
@@ -48,7 +49,7 @@ export function getCountryName(name) {
             console.log(error);
         }
     }
-} 
+}
 
 export function filterCountriesByRegion(payload){
     console.log(payload);
@@ -72,5 +73,12 @@ export function orderByPopulation(payload){
         type: ORDER_BY_POPULATION,
         payload
     }
+}
+
+export const getAllActivities=()=>(dispatch)=>{
+    axios.get('http://localhost:3001/activities')
+        .then((response) =>
+            dispatch({ type: GET_ALL_ACTIVITIES, payload: response.data })
+        );
 }
 

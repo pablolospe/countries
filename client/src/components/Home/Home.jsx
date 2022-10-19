@@ -6,19 +6,22 @@ import {
   getAllCountries,
   filterCountriesByRegion,
   orderAlphabetically,
-  orderByPopulation,
+  getAllActivities,
 } from "../../redux/actions/actions";
 import Paginado from "../Paginado/Paginado";
+import SearchBar from "../SearchBar/SearchBar";
+// import style from './Home.module.css'
 
-export default function Cards() {
+
+export default function Home() {
   const dispatch = useDispatch();
-  // const allCountries = useSelector((state) => state.countries)
 
   useEffect(() => {
     dispatch(getAllCountries());
   }, [dispatch]);
 
   const allCountries = useSelector((state) => state.currentCountries);
+  const allActivities = useSelector((state) => state.activities);
   const [currentPage, setCurrentPage] = useState(1);
   const [countriesPerPage, setCountriesPerPage] = useState();
   const [order, setOrder] = useState();
@@ -44,6 +47,10 @@ export default function Cards() {
     }
   }, [currentPage]);
 
+  useEffect(() => {
+    dispatch(getAllActivities());
+  }, [dispatch]);
+
   function handlePrev() {
     if (currentPage !== 1) setCurrentPage(currentPage - 1);
   }
@@ -61,33 +68,27 @@ export default function Cards() {
     e.preventDefault();
     dispatch(orderAlphabetically(e.target.value));
     paginado(1);
-    setOrder(e.target.value)
+    setOrder(e.target.value);
   }
-  function handleSortByPopulation(e) {
-    e.preventDefault();
-    dispatch(orderByPopulation(e.target.value));
-    paginado(1);
-    setOrder(e.target.value)
-  }
+
 
   return (
     <>
-      <Paginado
-        allCountries={allCountries.length}
-        countriesPerPage={countriesPerPage}
-        currentPage={paginado}
-        nextP={handleNext}
-        prevP={handlePrev}
-      />
-      <div>
-        <label name="abc"> Alphabetical order:</label>
-        <select name="abc" onChange={(e) => handleSort(e)}>
-          <option value="unordered">Unordered</option>
-          <option value="asc">A-Z</option>
-          <option value="desc">Z-A</option>
-        </select>
+      {/* <h2>Henry Countries</h2> */}
+      <div >
+        <div >
+          <SearchBar />
+        </div>
+          <label name="order by">  Order:</label>
+          <select name="abc" onChange={(e) => handleSort(e)}>
+            <option > Oreder by... </option>
+            <option value="asc">A-Z</option>
+            <option value="desc">Z-A</option>
+            <option value="more">More to Less</option>
+            <option value="less">Less to More</option>  
+          </select>
 
-        <label name="region"> Region:</label>
+        <label name="region">  Region:</label>
         <select name="region" onChange={(e) => handleSelect(e)}>
           <option value="All">All</option>
           <option value="Africa">Africa</option>
@@ -98,18 +99,25 @@ export default function Cards() {
           <option value="Antarctic">Antarctic</option>
         </select>
 
-        <label name="population"> Population:</label>
-        <select name="population" onChange={(e) => handleSortByPopulation(e)}>
-          <option value="unordered">Unordered</option>
-          <option value="asc">More to Less</option>
-          <option value="desc">Less to More</option>
-        </select>
-
-        <label name="activity"> Activity:</label>
+        <label name="activity">  Activity:</label>
         <select name="activity">
-          <option value="activity">Act1</option>
+        <option > Select an activity  </option>
+          {allActivities.map((ac) => (
+            <option key={ac.id} value={ac.name}>
+              {ac.name}
+            </option>
+          ))}
         </select>
       </div>
+
+      <Paginado
+        allCountries={allCountries.length}
+        countriesPerPage={countriesPerPage}
+        currentPage={paginado}
+        nextP={handleNext}
+        prevP={handlePrev}
+      />
+
       <div>
         {currentCountries?.map((c) => (
           <Card

@@ -1,0 +1,15 @@
+.flag{
+    border-radius: 20px;
+    box-shadow: -10px 10px 40px black;
+}
+
+h3{
+    color: rgb(254, 254, 136);
+    text-shadow: -4px 4px 6px black;
+    
+}
+
+p{
+    color: rgb(254, 254, 136);
+    text-shadow: -4px 4px 6px black;
+}
