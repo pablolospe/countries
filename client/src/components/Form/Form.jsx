@@ -8,8 +8,6 @@ function validate(input){
   let errors = {}
   if(!input.name){
     errors.name= 'activity name is required';
-  } else if (!input.country){
-    errors.country= 'country is required'
   } else if (!input.difficulty){
     errors.difficulty= 'difficulty is required'
   } else if (!input.duration){
@@ -50,8 +48,8 @@ export default function Form(props) {
     }))
   };
   
-  const submitHandler = (e) => {
-    e.preventDefault();
+  const submitHandler = (event) => {
+    event.preventDefault();
     let newActiv = dispatch(createActivity(input)).payload;
     alert('New Activity Created')
     axios.post("http://localhost:3001/activities", newActiv);
@@ -82,7 +80,8 @@ export default function Form(props) {
 
   return (
     <>
-    <form onSubmit={e=>submitHandler(e)}>
+    <div>
+    <form onSubmit={(event)=>submitHandler(event)}>
       <div>
           <label name="name">Activity:</label>
           <input
@@ -151,15 +150,6 @@ export default function Form(props) {
       
 
       <div>
-          <ul>
-            <div >{input.countries.map(el=>
-            <div> 
-            <li key={el.id} name={el} > {el} </li>
-            <button  onClick={()=>handleDelete(el)}>x</button>
-            </div>
-            
-            )}</div>
-          </ul>
 
           
           <label>Country</label>
@@ -169,34 +159,26 @@ export default function Form(props) {
               <option key={c.id}>{c.name}</option>
             ))}
           </select>
-          {errors.name && (<p className="error">{errors.country} </p>)}
+          {/* {errors.name && (<p className="error">{errors.country} </p>)} */}
           <br /><br />
       </div>
 
       <div>
           <br />
           <button type="submit"
-          disabled={!input.name || !input.difficulty || !input.duration || !input.season }>
+          disabled={!input.name || errors.name || errors.difficulty || errors.duration || errors.season }>
             CREATE
           </button>
       </div>
     </form>
+          
+            {input.countries.map(el=>
+            <div> 
+            <p> {el}</p>
+              <button key={el.id} name={el.name} onClick={()=>handleDelete(el)}>x</button>
+            </div>
+            )}
+      </div>
     </>
   );
 }
-
-
-
-// <div>
-// <ul><li >{input.countries.map(el=>el + ' ,')}</li></ul>
-// <label>Country</label>
-// <select onChange={handleSelected} name="country">
-//   <option onChange={handleSelected} >Choose...</option>
-//   {allCountries.map((c) => (
-//     <option key={c.name} value={c.name}>{c.name}</option>
-//   ))}
-// </select>
-// <br />
-// <br />
-// <button type="submit">CREATE</button>
-// </div>

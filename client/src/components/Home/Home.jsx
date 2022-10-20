@@ -13,7 +13,7 @@ import SearchBar from "../SearchBar/SearchBar";
 // import style from './Home.module.css'
 
 
-export default function Home() {
+export default function Home(props) {
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -77,7 +77,9 @@ export default function Home() {
       {/* <h2>Henry Countries</h2> */}
       <div >
         <div >
-          <SearchBar />
+          <SearchBar 
+          paginado={paginado}
+          />
         </div>
           <label name="order by">  Order:</label>
           <select name="abc" onChange={(e) => handleSort(e)}>

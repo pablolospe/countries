@@ -2,7 +2,8 @@ import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { getCountryName } from "../../redux/actions/actions.js";
 
-export default function SearchBar(props) {
+
+export default function SearchBar({paginado}) {
 	const [countryName, setCountryName] = useState('');
 	const dispatch = useDispatch();
 
@@ -15,6 +16,7 @@ export default function SearchBar(props) {
 	const handlerSubmit = (e) => {
 		e.preventDefault();
 		dispatch(getCountryName(countryName));
+		paginado(1)
 		setCountryName('');
 		// console.log('anda?'+ countryName);
 	};
