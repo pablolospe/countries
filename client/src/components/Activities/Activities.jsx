@@ -3,6 +3,7 @@ import Activity from '../Activity/Activity.jsx'
 import { getAllActivities } from '../../redux/actions/actions.js';
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from 'react';
+import style from './Activities.module.css'
 
 
 export default function Activities({props, id,name,difficulty,duration,season}) {
@@ -16,7 +17,7 @@ export default function Activities({props, id,name,difficulty,duration,season}) 
   
   return (
     <>
-      <div>
+      <div className={style.activities}>
         
         {
           allActivities?.map((a)=>(

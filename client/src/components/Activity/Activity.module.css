@@ -1,0 +1,13 @@
+.card{
+    margin: 3px;
+    padding-top: 2px;
+    height: 95%;
+    width: 95% ;
+    border-radius: 20px;
+    
+    box-shadow: -10px 10px 40px black;
+}
+
+.countries{
+    
+}

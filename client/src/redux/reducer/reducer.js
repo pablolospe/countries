@@ -4,7 +4,8 @@ import { GET_ALL_COUNTRIES,
     GET_COUNTRY_NAME, 
     FILTER_BY_REGION, 
     ORDER_ALPHABETICALLY, 
-    GET_ALL_ACTIVITIES 
+    GET_ALL_ACTIVITIES,
+    FILTER_ACTIVITY, 
 } from "../actions/actions.js";
 
 const initialState = {
@@ -85,6 +86,15 @@ const reducer = (state = initialState, action) => {
             return{
                 ...state,
                 activities: action.payload
+            }
+        case FILTER_ACTIVITY:
+            const filtredCountries = action.payload==='unfiltered'? state.countries : 
+            state.countries.filter((c)=>{let activities = c.activities.map((c)=>c.name);
+                return activities.includes(action.payload)
+            })
+            return{
+                ...state,
+                currentCountries: filtredCountries,
             }
         default:
             return { ...state }

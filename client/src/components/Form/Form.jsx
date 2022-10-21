@@ -2,12 +2,12 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { useDispatch, useSelector } from "react-redux";
 import { createActivity, getAllCountries } from "../../redux/actions/actions";
-import { useHistory } from "react-router-dom";
+// import { useHistory } from "react-router-dom";
 
 function validate(input){
   let errors = {}
-  if(!input.name){
-    errors.name= 'activity name is required';
+  if ( /[^a-zA-Z, ]/g.test(input.name)
+  ){ errors.name= 'activity name is not valid';
   } else if (!input.difficulty){
     errors.difficulty= 'difficulty is required'
   } else if (!input.duration){
@@ -20,7 +20,7 @@ function validate(input){
 
 export default function Form(props) {
   const dispatch = useDispatch();
-  const history = useHistory();
+  // const history = useHistory();
   const allCountries = useSelector((state) => state.countries);
   const [errors, setErrors] = useState({})
   
@@ -51,7 +51,7 @@ export default function Form(props) {
   const submitHandler = (event) => {
     event.preventDefault();
     let newActiv = dispatch(createActivity(input)).payload;
-    alert('New Activity Created')
+    // alert('New Activity Created')
     axios.post("http://localhost:3001/activities", newActiv);
     setInput({
       name: "",
@@ -60,8 +60,8 @@ export default function Form(props) {
       season: "",
       countries: [],
     });
-    history.push('/home')
-    // window.location.reload(false)
+    // history.push('/home');
+    window.location.reload(false);
   };
   
     function handleSelected(e){
@@ -154,30 +154,33 @@ export default function Form(props) {
           
           <label>Country</label>
           <select onChange={handleSelected} name="country">
-          <option onChange={handleSelected} >Choose...</option>
-            {allCountries.map((c) => (
+          <option  onChange={handleSelected} >Choose...</option>
+            {allCountries?.map((c) => (
+              
               <option key={c.id}>{c.name}</option>
+              
             ))}
           </select>
-          {/* {errors.name && (<p className="error">{errors.country} </p>)} */}
+          {errors.allCountries && (<p className="error">{errors.allCountries} </p>)}
           <br /><br />
       </div>
+
+          {input.countries.map(el=>
+          <div key={el.id}> 
+          <p> {el}</p>
+            <button type='button' name={el.name} onClick={()=>handleDelete(el)}>x</button>
+          </div>
+          )}
 
       <div>
           <br />
           <button type="submit"
-          disabled={!input.name || errors.name || errors.difficulty || errors.duration || errors.season }>
+          disabled={!input.name || errors.name || errors.difficulty || errors.duration || errors.season || errors.allCountries }>
             CREATE
           </button>
       </div>
     </form>
           
-            {input.countries.map(el=>
-            <div> 
-            <p> {el}</p>
-              <button key={el.id} name={el.name} onClick={()=>handleDelete(el)}>x</button>
-            </div>
-            )}
       </div>
     </>
   );

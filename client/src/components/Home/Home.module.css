@@ -1,4 +1,25 @@
-Select{
-    border-radius: 5px;
-    background-color: black;
+body{
+    text-align: center;
+
+}
+
+.filters{
+    display: grid;
+    grid-template-columns: auto auto auto auto;
+    align-content: space-around
+}
+
+.paginado{
+    display: grid;
+}
+
+.grid{
+    display: grid;
+    grid-template-columns: auto auto auto auto auto;
+    /* justify-content: space-between */
+    align-content: space-around
+}
+
+.card{
+    transition: 3s linear;
 }

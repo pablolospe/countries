@@ -1,19 +1,32 @@
-.flag{
-    border-radius: 20px;
-    box-shadow: -10px 10px 20px black;
+.carddetail{
+    display: grid;
+    grid-template-columns: auto auto;
+    
 }
 
-p{
+p {
     font-weight: bold;
+    font-size: smaller;
+    justify-content: center;
+}
+
+.activities{
+    display: grid;
+    flex-direction: column;
+    /* justify-content: center;
+    align-items: center; */
 }
 
 .card{
     /* border: solid 2px; */
     padding: 5px;
     border-radius: 20px;
-    box-shadow: -10px 10px 30px black;
-
+    box-shadow: -10px 10px 20px black;
 }
 
 
+.flag{
+    border-radius: 20px;
+    box-shadow: -10px 10px 20px black;
+}
 

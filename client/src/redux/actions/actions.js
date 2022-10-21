@@ -6,6 +6,7 @@ export const GET_COUNTRY_DETAIL = 'GET_COUNTRY_DETAIL';
 export const CREATE_ACTIVITY = 'CREATE_ACTIVITY';
 export const GET_COUNTRY_NAME = 'GET_COUNTRY_NAME';
 export const FILTER_BY_REGION = 'FILTER_BY_REGION';
+export const FILTER_ACTIVITY = 'FILTER_ACTIVITY';
 export const ORDER_ALPHABETICALLY = 'ORDER_ALPHABETICALLY';
 export const ORDER_BY_POPULATION = 'ORDER_BY_POPULATION';
 
@@ -82,3 +83,10 @@ export const getAllActivities=()=>(dispatch)=>{
         );
 }
 
+export function filterActivity(payload){
+    return {
+        type: FILTER_ACTIVITY,
+        payload,
+    }
+
+}

@@ -1,15 +1,17 @@
 .flag{
-    border-radius: 20px;
+    border-radius: 10px;
     box-shadow: -10px 10px 40px black;
 }
 
 h3{
     color: rgb(254, 254, 136);
     text-shadow: -4px 4px 6px black;
+    line-height: 1.2em; font-size: 10pt;
     
 }
 
 p{
     color: rgb(254, 254, 136);
     text-shadow: -4px 4px 6px black;
+    line-height: 0.5em; font-size: 9pt;
 }
