@@ -6,6 +6,8 @@ import { GET_ALL_COUNTRIES,
     ORDER_ALPHABETICALLY, 
     GET_ALL_ACTIVITIES,
     FILTER_ACTIVITY, 
+    DELETE_ACTIVITY,
+    CLEAR_DETAIL,
 } from "../actions/actions.js";
 
 const initialState = {
@@ -95,6 +97,19 @@ const reducer = (state = initialState, action) => {
             return{
                 ...state,
                 currentCountries: filtredCountries,
+            }
+        case DELETE_ACTIVITY:
+            const allActivities = state.activities;
+            const activities = allActivities.filter(a=> a.id !== action.payload)
+            console.log(activities);
+            return {
+                ...state,
+                activities: activities
+            }
+        case CLEAR_DETAIL:
+            return {
+                ...state,
+                countryDetail: action.payload,
             }
         default:
             return { ...state }

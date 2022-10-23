@@ -1,8 +1,9 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
-import { getCountryDetail } from "../../redux/actions/actions";
+import { getCountryDetail, cleanDetail } from "../../redux/actions/actions";
 import style from './CardDetail.module.css'
+
 
 export default function CardDetail(props) {
   const dispatch = useDispatch();
@@ -12,14 +13,15 @@ export default function CardDetail(props) {
 
   useEffect(() => {
     dispatch(getCountryDetail(id));
+    return()=>{dispatch(cleanDetail())}
   }, [dispatch, id]);
 
   return (
     <div>
-      <button onClick={()=>history.goBack()}>BACK</button>
+      <button className={style.back} onClick={()=>history.goBack()}>BACK</button>
       {
-      detail?.map((c) => (
-          <div key={c.id} className={style.carddetail}>
+      detail?.map((c, pos) => (
+          <div key={pos} className={style.carddetail}>
             <div>  
               <h1>{c.name}</h1>
               <img className={style.flag} src={c.flag} alt='flag' />
@@ -31,14 +33,15 @@ export default function CardDetail(props) {
               <p>Sub-Region: {c.subregion}</p>
               <p>Area: {c.area.toLocaleString()} km²</p>
               <p>Population: {c.population.toLocaleString()}</p>
-              <br/>
             </div>
           <div>
 
           <div >
+            {/* <div>{(activities.length) (<h2>Activities:</h2>)  }
+            </div> */}
             <ul className={style.activities}>
-            {c.activities?.map((ac) => (
-              <div key={ac.id}>
+            {c.activities?.map((ac, pos) => (
+              <div key={pos}>
               <li className={style.card} >
                 <p>You can {ac.name} in {ac.season}</p>
                 <p>difficulty: {ac.difficulty}</p>

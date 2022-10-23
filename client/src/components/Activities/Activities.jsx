@@ -17,19 +17,25 @@ export default function Activities({props, id,name,difficulty,duration,season}) 
   
   return (
     <>
-      <div className={style.activities}>
-        
+      <div >
         {
-          allActivities?.map((a)=>(
+          allActivities.length<1?
+          <div className={style.cartel}>
+            <h1>Activities not found</h1>
+          </div>:
+          allActivities.map((a)=>(
+            <div key={a.id} className={style.activities}>
             <Activity 
-              key={a.id}
+              id={a.id}
+              
               name={a.name}
               difficulty={a.difficulty}
               duration={a.duration}
               season={a.season}
               countries={a.countries}
-               
+            
             />
+            </div>
           ))
         } 
       </div>

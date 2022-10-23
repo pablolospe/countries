@@ -1,41 +1,54 @@
-import React, { useState } from 'react';
-import { useDispatch } from 'react-redux';
+import React, { useState } from "react";
+import { useDispatch } from "react-redux";
 import { getCountryName } from "../../redux/actions/actions.js";
+import style from "./SearchBar.module.css";
 
+export default function SearchBar({ paginado }) {
+  const [countryName, setCountryName] = useState("");
+  const dispatch = useDispatch();
 
-export default function SearchBar({paginado}) {
-	const [countryName, setCountryName] = useState('');
-	const dispatch = useDispatch();
+  const handlerChange = (e) => {
+    setCountryName(e.target.value);
+  };
 
-	const handlerChange = (e) => {
-		// e.preventDefault()
-		
-		setCountryName(e.target.value);
-	};
+  const handlerSubmit = (e) => {
+    e.preventDefault();
+    dispatch(getCountryName(countryName));
+    paginado(1);
+    setCountryName("");
+  };
+  const clearSubmit = (e) => {
+    e.preventDefault();
+    dispatch(getCountryName(''));
+    paginado(1);
+  };
 
-	const handlerSubmit = (e) => {
-		e.preventDefault();
-		dispatch(getCountryName(countryName));
-		paginado(1)
-		setCountryName('');
-		// console.log('anda?'+ countryName);
-	};
-	
-	return (
-		<>
-			<div>
-				<form onSubmit={handlerSubmit}>
-					<input
-						type='text'
-						name='country'
-						id='country'
-						value={countryName}
-						placeholder='Search...'
-						onChange={handlerChange}
-					/>
-					<button type='submit' >Search Country</button>
-				</form>
-			</div>
-		</>
-	);
+  return (
+    <>
+      <div className={style.container}>
+        <div>
+          <button  className={style.clear} onClick={clearSubmit} type="reset">
+            Clear Filters
+          </button>
+        </div>
+
+        <div>
+          <form onSubmit={handlerSubmit}>
+            <input
+              className={style.searchbar}
+              type="text"
+              name="country"
+              id="country"
+              value={countryName}
+              placeholder="Search..."
+              onChange={handlerChange}
+            />
+            <button className={style.submitbutton} type="submit">
+              Search Country
+            </button>
+          </form>
+        </div>
+      </div>
+    </>
+  );
 }

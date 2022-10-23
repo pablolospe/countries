@@ -1,7 +1,9 @@
 .carddetail{
-    display: grid;
-    grid-template-columns: auto auto;
     
+    display: grid;
+    gap:1rem;
+    
+    grid-template-columns: repeat(auto-fill, minimax(15rem, 1fr))
 }
 
 p {
@@ -10,12 +12,10 @@ p {
     justify-content: center;
 }
 
-.activities{
+/* .activities{
     display: grid;
-    flex-direction: column;
-    /* justify-content: center;
-    align-items: center; */
-}
+    grid-template-columns:auto auto auto;
+} */
 
 .card{
     /* border: solid 2px; */
@@ -26,7 +26,12 @@ p {
 
 
 .flag{
+    height: 250px;
     border-radius: 20px;
     box-shadow: -10px 10px 20px black;
 }
 
+.back{
+    height: 30px;
+    border-radius:  15px ;
+}

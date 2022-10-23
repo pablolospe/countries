@@ -29,6 +29,17 @@ router.get('/', async (req, res) => {
     // Si no existe ningún país mostrar un mensaje adecuado
 })
 
+router.delete('/:id', async (req,res)=>{
+    try {
+        const {id} = req.params
+        const activityToDelete = await Activity.findByPk(id);
+        await activityToDelete.destroy();
+        res.status(200).send(activityToDelete);
+    } catch (error) {
+        res.status(400).send(error.message)
+    }
+})
+
 router.post('/', async (req, res) => {
     try {
         let { name, difficulty, duration, season, countries } = req.body;

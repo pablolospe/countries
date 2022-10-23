@@ -1,0 +1,16 @@
+html { 
+  opacity: 0.98;
+  background: url(../../pexels-andrea-piacquadio-3769138.jpg) no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+
+.landing{
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    
+}

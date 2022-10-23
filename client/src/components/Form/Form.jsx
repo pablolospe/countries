@@ -2,11 +2,11 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { useDispatch, useSelector } from "react-redux";
 import { createActivity, getAllCountries } from "../../redux/actions/actions";
-// import { useHistory } from "react-router-dom";
+import style from './Form.module.css'
 
 function validate(input){
   let errors = {}
-  if ( /[^a-zA-Z, ]/g.test(input.name)
+  if ( !input.name || /[^a-zA-Z, ]/g.test(input.name)
   ){ errors.name= 'activity name is not valid';
   } else if (!input.difficulty){
     errors.difficulty= 'difficulty is required'
@@ -80,7 +80,7 @@ export default function Form(props) {
 
   return (
     <>
-    <div>
+    <div className={style.formulario}>
     <form onSubmit={(event)=>submitHandler(event)}>
       <div>
           <label name="name">Activity:</label>
@@ -98,7 +98,7 @@ export default function Form(props) {
       </div>
 
       <div>
-          <label htmlFor="difficulty">Difficulty:</label>
+          <label name="difficulty">Difficulty:</label>
           <select name="difficulty" onChange={e=>changeHandler(e)}>
             <option value=""> </option>
             <option value="1">1</option>
@@ -114,7 +114,7 @@ export default function Form(props) {
       </div>
 
       <div>
-          <label htmlFor="duration">Duration: </label>
+          <label name="duration">Duration: </label>
           <select name="duration" onChange={e=>changeHandler(e)}>
             <option value=""></option>
             <option value="1">1 Hr.</option>
@@ -155,9 +155,9 @@ export default function Form(props) {
           <label>Country</label>
           <select onChange={handleSelected} name="country">
           <option  onChange={handleSelected} >Choose...</option>
-            {allCountries?.map((c) => (
+            {allCountries?.map((c, pos) => (
               
-              <option key={c.id}>{c.name}</option>
+              <option key={pos}>{c.name}</option>
               
             ))}
           </select>
@@ -165,8 +165,8 @@ export default function Form(props) {
           <br /><br />
       </div>
 
-          {input.countries.map(el=>
-          <div key={el.id}> 
+          {input.countries.map((el, pos)=>
+          <div key={pos}> 
           <p> {el}</p>
             <button type='button' name={el.name} onClick={()=>handleDelete(el)}>x</button>
           </div>

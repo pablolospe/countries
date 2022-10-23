@@ -27,17 +27,18 @@ export default function Home(props) {
   const [countriesPerPage, setCountriesPerPage] = useState();
   const [order, setOrder] = useState();
 
-  const activitiesNames = allActivities.map(e=> e.name)
-  const activitiesNotRepeated = activitiesNames.filter((act, index)=>{
-    return activitiesNames.indexOf(act) === index 
-  })
-
+  
   const indexOfLastCountry = currentPage * countriesPerPage;
   const indexOfFirstCountry = indexOfLastCountry - countriesPerPage;
   
   const currentCountries = currentPage===1?allCountries.slice(0,9):
     currentPage===26?allCountries.slice(249,allCountries.length):
     allCountries.slice(indexOfFirstCountry,indexOfLastCountry);
+  
+  const activitiesNames = allActivities.map(e=> e.name)
+  const activitiesNotRepeated = activitiesNames.filter((act, index)=>{
+    return activitiesNames.indexOf(act) === index;
+  })
 
   const numPage = Math.ceil(allCountries.length / countriesPerPage);
 
@@ -46,12 +47,8 @@ export default function Home(props) {
   };
 
   useEffect(() => {
-    if (currentPage === 1) {
-      return setCountriesPerPage(9);
-    } else {
-      return setCountriesPerPage(10);
-    }
-  }, [currentPage]);
+      return setCountriesPerPage(9.99);
+  }, [currentPage, dispatch]);
 
   useEffect(() => {
     dispatch(getAllActivities());
@@ -83,13 +80,12 @@ export default function Home(props) {
     paginado(1);
   }
 
-
   return (
     <>
       <div className={style.filters}>
         
         <div>
-          <label name="order by">  Order:</label>
+          <label name="order by">  Order</label>
           <select name="abc" onChange={(e) => handleSort(e)}>
             <option > Oreder by... </option>
             <option value="asc">A-Z</option>
@@ -100,7 +96,7 @@ export default function Home(props) {
         </div>
 
         <div>
-          <label name="region">  Region:</label>
+          <label name="region">  Region</label>
           <select name="region" onChange={(e) => handleSelect(e)}>
             <option value="All">All</option>
             <option value="Africa">Africa</option>
@@ -113,25 +109,25 @@ export default function Home(props) {
         </div>
 
         <div>
-          <label name="activity">  Activity:</label>
+          <label name="activity">  Activity</label>
           <select onChange={handleActivity} name="activity">
           <option value='unfiltered' > Select an activity  </option>
-            {allActivities.map((ac) => (
-              <option key={ac.id} value={ac.name}>
-                {ac.name}
+            {activitiesNotRepeated?.map((ac) => (
+              <option key={ac} value={ac}>
+                {ac}
               </option>
             ))}
           </select>
         </div>
 
-        <div >
+      </div>
+
+        <div className={style.searchbar}>
           <SearchBar 
           paginado={paginado}
           />
         </div>
 
-      </div>
-      
       <div className={style.paginado}>
         <Paginado
           allCountries={allCountries.length}
@@ -143,8 +139,10 @@ export default function Home(props) {
       </div>
 
       <div className={style.grid}>
-        {currentCountries?.map((c) => (
-          <div className={style.card}>
+        {!currentCountries?
+        <h1>Country Not Found</h1>
+        :currentCountries.map((c) => (
+          <div key={c.id} className={style.card}>
           <Card
             key={c.id}
             id={c.id}

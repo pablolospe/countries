@@ -7,7 +7,7 @@ const getApiInfo = async () => {
         return {
             id: el.cca3,
             name: el.name.common,
-            flag: el.flags[1],
+            flag: el.flags[0],
             capital: el.capital ? el.capital[0] : 'No capital aviable',
             region: el.region,
             subregion: el.subregion,

@@ -9,8 +9,8 @@ export const FILTER_BY_REGION = 'FILTER_BY_REGION';
 export const FILTER_ACTIVITY = 'FILTER_ACTIVITY';
 export const ORDER_ALPHABETICALLY = 'ORDER_ALPHABETICALLY';
 export const ORDER_BY_POPULATION = 'ORDER_BY_POPULATION';
-
-
+export const DELETE_ACTIVITY = 'DELETE_ACTIVITY';
+export const CLEAR_DETAIL = 'CLEAR_DETAIL';
 
 export const getAllCountries = () => (dispatch) =>
     axios.get('http://localhost:3001/countries')
@@ -40,6 +40,7 @@ export const createActivity = (values) => {
 
 export function getCountryName(name) {
     return async function (dispatch) {
+        // dispatch(loading())
         try {
             const countryDetail = await axios.get('http://localhost:3001/countries?name=' + name);
             return dispatch({
@@ -48,6 +49,7 @@ export function getCountryName(name) {
             })
         } catch (error) {
             console.log(error);
+            
         }
     }
 }
@@ -89,4 +91,28 @@ export function filterActivity(payload){
         payload,
     }
 
+}
+
+export function cleanDetail() {
+    return {
+      type: CLEAR_DETAIL,
+      payload: [],
+    };
+  }
+
+
+export function deleteActivity(id){
+    return async function (dispatch) {
+        try {
+            const deleteAc = await axios.delete(
+                `http://localhost:3001/activities/${id}`
+            );
+            return dispatch({
+                type: DELETE_ACTIVITY,
+                payload: deleteAc.data.id
+            });
+        } catch (error) {
+            console.log(error);
+        }
+    };
 }

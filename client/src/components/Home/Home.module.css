@@ -1,9 +1,19 @@
+html { 
+    opacity: 0.98;
+    background: url(../../fondoPizarron1.jpg) no-repeat center center fixed; 
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+  }
+
 body{
     text-align: center;
-
 }
 
 .filters{
+    margin-top: 20px;
+
     display: grid;
     grid-template-columns: auto auto auto auto;
     align-content: space-around
@@ -21,5 +31,27 @@ body{
 }
 
 .card{
-    transition: 3s linear;
+    size-adjust: 200%;
+    opacity: 65%;
+    display: grid;
+    transition: opacity 0.8s;
+    /* grid-template-columns: 25% 25% 25% 25% ; */
+    /* align-content: space-between */
+}
+
+.card:hover{
+    opacity: 100%;
+}
+
+select{
+    border-radius: 8px;
+}
+
+label{
+    margin-right: 5px;
+    color: rgb(254, 254, 136);
+    text-shadow: -4px 4px 6px black;
+    line-height: 0.5em; 
+    font-size: 10pt;
+    font-weight: bold;
 }

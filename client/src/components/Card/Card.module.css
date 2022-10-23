@@ -1,17 +1,66 @@
-.flag{
-    border-radius: 10px;
-    box-shadow: -10px 10px 40px black;
+.card{
+    
+    margin: 5px;
+    padding-top: 2px;
+    height: 95%;
+    width: 95% ;
+    display: grid;
+    align-content: center;
+    justify-content: center;
+    /* border-radius: 20px;
+    box-shadow: -10px 10px 40px black; */
 }
 
-h3{
+.flagcase{
+
+    height: 80px;
+    width: 120px;
+    border-radius: 50px;
+    box-shadow: -10px 10px 40px black;
+    display: grid;
+    justify-content: center;
+    align-content: center;
+
+}
+
+.flag{
+    height: auto;
+    width: 100px;
+    border-radius: 10px;
+    /* box-shadow: -10px 10px 40px black; */
+}
+
+h5{
+    font-size: smaller;
     color: rgb(254, 254, 136);
     text-shadow: -4px 4px 6px black;
     line-height: 1.2em; font-size: 10pt;
-    
+    margin-bottom: 2px;
+    transition: text-shadow 0.5s ease-in-out;
+    transition: font-size 0.4s ease-in-out;
 }
-
-p{
-    color: rgb(254, 254, 136);
+h6{
+    font-weight: bold;
+    color: rgb(238, 238, 216);
+    margin-top: 0px;
+    margin-bottom: 20px;
     text-shadow: -4px 4px 6px black;
-    line-height: 0.5em; font-size: 9pt;
+    line-height: 0.5em; 
+}
+/* 
+p{
+    
+} */
+
+/* h5 a{
+    padding: 4px;
+    font-weight: bold;
+} */
+
+h5:hover a{
+    color: #fff; 
+    text-shadow: 0 0 10px #fff,
+                0 0 10px #fff,
+                0 0 20px #fff,
+                0 0 20px #fff;  
 }
