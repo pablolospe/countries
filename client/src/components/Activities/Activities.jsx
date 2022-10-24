@@ -17,7 +17,7 @@ export default function Activities({props, id,name,difficulty,duration,season}) 
   
   return (
     <>
-      <div >
+      <div className={style.pag}>
         {
           allActivities.length<1?
           <div className={style.cartel}>

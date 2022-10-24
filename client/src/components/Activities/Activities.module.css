@@ -1,3 +1,7 @@
+.pag{
+    display: grid;
+    grid-template-columns: 25% 25% 25% 25% ;
+}
 .container{
     margin: 0px 10px 0px 10px;
     display: flex;
@@ -8,11 +12,10 @@
 .card{
     
     /* size-adjust: 200%; */
+    /* display: flex; */
     opacity: 65%;
     flex: none;
-    /* display: flex; */
     flex-basis: 15%;
-    /* grid-template-columns: 25% 25% 25% 25% ; */
     /* align-content: space-between */
 }
 .cartel{

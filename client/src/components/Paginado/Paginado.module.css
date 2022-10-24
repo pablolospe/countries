@@ -1,6 +1,24 @@
+
+.prevnext {
+  height: 25px;
+  border-radius: 12px;
+  border: none;
+  background: rgba(255, 236, 236, 0.8);
+  /* color: hsl(0, 0%, 0%); */
+  margin: 2px;
+  margin-block-end: 10px;
+  font-size: 17px;
+  display: inline;
+  align-items: flex-start;
+  justify-content: end;
+  cursor: pointer;
+}
+
 .pagActual {
+    height: 20px;
     border-radius: 12px;
     border: none;
+    /* background: red; */
     background: rgb(255, 255, 255);
     color: hsl(0, 0%, 0%);
     margin: 2px;
@@ -13,20 +31,7 @@
   }
   
   .pagOther {
-    border-radius: 12px;
-    border: none;
-    background: rgba(255, 236, 236, 0.8);
-    color: hsl(0, 0%, 0%);
-    margin: 2px;
-    margin-block-end: 10px;
-    font-size: 17px;
-    display: inline;
-    align-items: flex-start;
-    justify-content: end;
-    cursor: pointer;
-  }
-  
-  .prevnext {
+    height: 20px;
     border-radius: 12px;
     border: none;
     background: rgba(255, 236, 236, 0.8);

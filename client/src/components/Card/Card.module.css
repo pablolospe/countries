@@ -4,7 +4,7 @@
     height: 95%;
     width: 95% ; */
     display: flex;
-    align-content: center;
+    align-items: center;
     justify-content: center;
     /* border-radius: 20px;
     box-shadow: -10px 10px 40px black; */
@@ -33,6 +33,7 @@ h5{
     font-size: smaller;
     color: rgb(254, 254, 136);
     text-shadow: -4px 4px 6px black;
+    text-align: center;
     line-height: 1.2em; font-size: 10pt;
     margin-bottom: 2px;
     transition: text-shadow 0.5s ease-in-out;
@@ -44,6 +45,7 @@ h6{
     margin-top: 0px;
     margin-bottom: 20px;
     text-shadow: -4px 4px 6px black;
+    text-align: center;
     line-height: 0.5em; 
 }
 

@@ -9,8 +9,8 @@ const getApiInfo = async () => {
             name: el.name.common,
             flag: el.flags[0],
             capital: el.capital ? el.capital[0] : 'No capital aviable',
-            region: el.region,
-            subregion: el.subregion,
+            region: el.region ? el.region : 'No region aviable',
+            subregion: el.subregion ? el.subregion : 'No subregion aviable',
             area: el.area,
             population: el.population,
         }
@@ -19,11 +19,31 @@ const getApiInfo = async () => {
     return apiInfo;
 };
 
+// const saveCountriesToDb = async function () {
+//     const data = await getApiInfo();
+//     const db_countries = await Country.bulkCreate(data);
+//     return db_countries
+// }
+
 const saveCountriesToDb = async function () {
     const data = await getApiInfo();
-    const db_countries = await Country.bulkCreate(data);
-    return db_countries
+    data.forEach(country => {
+        Country.findOrCreate({
+            where: {
+                id: country.id,
+                name: country.name,
+                flag: country.flag,
+                capital: country.capital,
+                region: country.region,
+                subregion: country.subregion,
+                area: country.area,
+                population: country.population,
+            }
+        })
+    })
 }
+
+
 
 const getInfoDB = async () => {
     const countries = await Country.findAll({

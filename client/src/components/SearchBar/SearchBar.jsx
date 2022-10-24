@@ -14,9 +14,10 @@ export default function SearchBar({ paginado }) {
   const handlerSubmit = (e) => {
     e.preventDefault();
     dispatch(getCountryName(countryName));
-    paginado(1);
+    // paginado(1);
     setCountryName("");
   };
+  
   const clearSubmit = (e) => {
     e.preventDefault();
     dispatch(getCountryName(''));
@@ -26,13 +27,13 @@ export default function SearchBar({ paginado }) {
   return (
     <>
       <div className={style.container}>
-        <div>
+        <div className={style.box}>
           <button  className={style.clear} onClick={clearSubmit} type="reset">
             Clear Filters
           </button>
         </div>
 
-        <div>
+        <div className={style.box}>
           <form onSubmit={handlerSubmit}>
             <input
               className={style.searchbar}

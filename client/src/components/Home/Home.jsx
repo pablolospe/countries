@@ -23,8 +23,8 @@ export default function Home(props) {
 
   const allCountries = useSelector((state) => state.currentCountries);
   const allActivities = useSelector((state) => state.activities);
-  const [currentPage, setCurrentPage] = useState(9.99);
-  const [countriesPerPage, setCountriesPerPage] = useState();
+  const [currentPage, setCurrentPage] = useState(1);
+  const [countriesPerPage, setCountriesPerPage] = useState(9.99);
   const [order, setOrder] = useState();
 
   
@@ -82,8 +82,9 @@ export default function Home(props) {
 
   return (
     <>
+    {console.log(currentPage)}
+    <div className={style.container}>
       <div className={style.filters}>
-        
         <div>
           <label name="order by">  Order</label>
           <select name="abc" onChange={(e) => handleSort(e)}>
@@ -125,6 +126,7 @@ export default function Home(props) {
         <div className={style.searchbar}>
           <SearchBar 
           paginado={paginado}
+          currentPage={currentPage}
           />
         </div>
 
@@ -132,14 +134,17 @@ export default function Home(props) {
         <Paginado
           allCountries={allCountries.length}
           countriesPerPage={countriesPerPage}
-          currentPage={paginado}
+          paginado={paginado}
+          currentPage={currentPage}
+          setCurrentPage={setCurrentPage}
           nextP={handleNext}
           prevP={handlePrev}
           />
       </div>
 
       <div className={style.cards}>
-        {!currentCountries?
+        {
+        !currentCountries.length?
         <h1>Country Not Found</h1>
         :currentCountries.map((c) => (
           <div key={c.id} className={style.card}>
@@ -153,6 +158,7 @@ export default function Home(props) {
           </div>
         ))}
       </div>
+      </div>
     </>
   );
 }
@@ -160,7 +166,14 @@ export default function Home(props) {
 
 
 
-// const mapAllActivities = allActivities.map(e=>e.name)
-// const uniqueActivities = mapAllActivities.filter((item,index)=>{
-//   return mapAllActivities.indexOf(item) === index;
-// })
+// <div className={currentCountries.length && Style.allCards}> 
+//                 {loading?(<Loading/>):currentCountries.length? 
+//                     currentCountries.map(country => 
+//                     <CountryCard    key = {country.id}
+//                                     name = {country.name}
+//                                     id = {country.id}
+//                                     img = {country.flag_img}
+//                                     continent = {country.continent}
+//                                     population= {country.population}
+//                 />):<NotFound/>} 
+//             </div>

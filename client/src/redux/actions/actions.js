@@ -48,8 +48,10 @@ export function getCountryName(name) {
                 payload: countryDetail.data,
             })
         } catch (error) {
-            console.log(error);
-            
+            return dispatch({
+                type: GET_COUNTRY_NAME,
+                payload: []
+            })
         }
     }
 }

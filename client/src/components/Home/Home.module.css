@@ -1,3 +1,7 @@
+.container{
+    
+}
+
 html { 
     opacity: 0.98;
     background: url(../../fondoPizarron1.jpg) no-repeat center center fixed; 
@@ -14,16 +18,19 @@ body{
 .filters{
     margin-top: 20px;
 
-    display: grid;
-    flex-flow: row-reverse wrap;
-    grid-template-columns: auto auto auto;
-    align-content: space-between
+    display: flex;
+    flex-flow: row wrap;
+    align-items:center;
+    justify-content: space-around;
+    
 }
 
 .paginado{
     /* display: grid; */
     display: flex;
+    align-items: center;
     justify-content: center;
+    
 }
 
 .cards{
@@ -31,16 +38,16 @@ body{
     grid-template-columns: auto auto auto auto auto;
     */
     display: flex;
-    flex-flow: row ;
-    flex-flow:  wrap;
+    flex-flow: row wrap;
+    
+    align-items: center;
     justify-content: center;
+    /* justify-content: space-around; */
     /* gap: 20px; */
     /* align-content: space-around  */
-
 }
 
 .card{
-    /* size-adjust: 200%; */
     opacity: 65%;
     display: flex;
     transition: opacity 0.8s;
@@ -66,7 +73,3 @@ label{
     font-size: 10pt;
     font-weight: bold;
 }
-/* .searchbar{
-   display: flex;
-   flex-flow: row wrap;
-} */

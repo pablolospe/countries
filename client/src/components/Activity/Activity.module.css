@@ -1,3 +1,8 @@
+
+.button{
+    height: 20px;
+    border-style: none;
+}
 .card{
     margin-right: 5px;
     color: rgb(254, 254, 136);

@@ -23,7 +23,7 @@ const { saveCountriesToDb } = require('./src/controllers/controller.js')
 
 // Syncing all the models at once.
 conn.sync({ force: false }).then(() => {
-  // saveCountriesToDb();
+  saveCountriesToDb();
   server.listen(3001, () => {
     console.log('%s listening at 3001'); // eslint-disable-line no-console
   });

@@ -87,7 +87,7 @@ export default function Form(props) {
       <div className={style.formulario}>
         <form onSubmit={(event) => submitHandler(event)}>
           <div className={style.container}>
-            <div>
+            <div className={style.margin}>
               <label name="name">Activity</label>
               <input
                 key="name"
@@ -99,7 +99,7 @@ export default function Form(props) {
               {errors.name && <p className={style.error}>{errors.name} </p>}
             </div>
 
-            <div>
+            <div className={style.margin}>
               <label name="difficulty">Difficulty</label>
               <select name="difficulty" onChange={(e) => changeHandler(e)}>
                 <option value=""> </option>
@@ -114,7 +114,7 @@ export default function Form(props) {
               )}
             </div>
 
-            <div>
+            <div className={style.margin}>
               <label name="duration">Duration</label>
               <select name="duration" onChange={(e) => changeHandler(e)}>
                 <option value=""></option>
@@ -133,7 +133,7 @@ export default function Form(props) {
               )}
             </div>
 
-            <div>
+            <div className={style.margin}>
               <label name="season">Season: </label>
               <select name="season" onChange={(e) => changeHandler(e)}>
                 <option value=""></option>
@@ -145,7 +145,7 @@ export default function Form(props) {
               {errors.season && <p className={style.error}>{errors.season} </p>}
             </div>
 
-            <div>
+            <div className={style.margin}>
               <label>Country</label>
               <select onChange={handleSelected} name="country">
                 <option onChange={handleSelected}>Choose...</option>
