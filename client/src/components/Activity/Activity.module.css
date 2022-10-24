@@ -1,12 +1,24 @@
 .card{
+    margin-right: 5px;
+    color: rgb(254, 254, 136);
+    text-shadow: -4px 4px 6px black;
+    line-height: 0.5em; 
+    font-size: 10pt;
+    font-weight: bold;
     margin: 3px;
     padding-top: 2px;
     height: 95%;
     width: 95% ;
     border-radius: 20px;
+    
     box-shadow: -10px 10px 40px black;
 }
 
-.countries{
-    
+p{
+    margin-right: 5px;
+    color: rgb(254, 254, 136);
+    text-shadow: -4px 4px 6px black;
+    line-height: 0.5em; 
+    font-size: 10pt;
+    font-weight: bold;
 }

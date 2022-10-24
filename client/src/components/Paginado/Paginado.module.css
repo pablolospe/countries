@@ -1,5 +1,5 @@
 .pagActual {
-    border-radius: 5px;
+    border-radius: 12px;
     border: none;
     background: rgb(255, 255, 255);
     color: hsl(0, 0%, 0%);
@@ -13,7 +13,7 @@
   }
   
   .pagOther {
-    border-radius: 5px;
+    border-radius: 12px;
     border: none;
     background: rgba(255, 236, 236, 0.8);
     color: hsl(0, 0%, 0%);
@@ -27,7 +27,7 @@
   }
   
   .prevnext {
-    border-radius: 5px;
+    border-radius: 12px;
     border: none;
     background: rgba(255, 236, 236, 0.8);
     color: hsl(0, 0%, 0%);

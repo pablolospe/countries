@@ -1,10 +1,9 @@
 .card{
     
-    margin: 5px;
-    padding-top: 2px;
+    /* padding-top: 2px;
     height: 95%;
-    width: 95% ;
-    display: grid;
+    width: 95% ; */
+    display: flex;
     align-content: center;
     justify-content: center;
     /* border-radius: 20px;
@@ -12,7 +11,6 @@
 }
 
 .flagcase{
-
     height: 80px;
     width: 120px;
     border-radius: 50px;
@@ -24,8 +22,9 @@
 }
 
 .flag{
-    height: auto;
-    width: 100px;
+    height: 50px;
+    width: auto;
+    object-fit: contain;
     border-radius: 10px;
     /* box-shadow: -10px 10px 40px black; */
 }
@@ -47,15 +46,6 @@ h6{
     text-shadow: -4px 4px 6px black;
     line-height: 0.5em; 
 }
-/* 
-p{
-    
-} */
-
-/* h5 a{
-    padding: 4px;
-    font-weight: bold;
-} */
 
 h5:hover a{
     color: #fff; 

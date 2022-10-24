@@ -1,12 +1,55 @@
-input{
-    border-radius: 8px ;
+.container{
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: space-between;
+    align-self: center;
+}
+
+input, option{
+    border-radius: 35px;
+    height: 27px;
+    width: 200px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: large;
+}
+
+button{
+    border-radius: 40px;
+    height: 40px;
 }
 /* 
 label{
     font-weight: bold;
 }
+*/
 .formulario{
+    flex: none
+    /* margin-top: 80px; */
+    /* display: flex; */
+    /* flex-flow: column wrap; */
+    /* justify-content: space-between; */
+    /* align-self: center; */
+    /* border: solid 2px black; */
+} 
+.countrydiv{
     display: flex;
-    text-align: center;
-    border: solid 2px black;
-} */
+    flex-flow: row wrap;
+    justify-content: center;
+}
+
+.button{
+    font-size:x-small;
+    color: rgb(31, 31, 31);
+    height: 20px;
+    width: 20px;
+    border: 1px solid black;
+}
+.countryname{
+    font-size:x-small;
+    color: rgb(31, 31, 31);
+}
+
+.error{
+    color: red;
+    font-size: x-small;
+}

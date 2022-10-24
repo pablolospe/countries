@@ -23,9 +23,10 @@ export default function Activities({props, id,name,difficulty,duration,season}) 
           <div className={style.cartel}>
             <h1>Activities not found</h1>
           </div>:
+          
           allActivities.map((a)=>(
-            <div key={a.id} className={style.activities}>
-            <Activity 
+            <div key={a.id} className={style.container}>
+            <Activity className={style.card}
               id={a.id}
               
               name={a.name}
@@ -37,6 +38,7 @@ export default function Activities({props, id,name,difficulty,duration,season}) 
             />
             </div>
           ))
+          
         } 
       </div>
     </>

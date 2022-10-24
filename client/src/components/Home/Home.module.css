@@ -15,26 +15,36 @@ body{
     margin-top: 20px;
 
     display: grid;
-    grid-template-columns: auto auto auto auto;
-    align-content: space-around
+    flex-flow: row-reverse wrap;
+    grid-template-columns: auto auto auto;
+    align-content: space-between
 }
 
 .paginado{
-    display: grid;
+    /* display: grid; */
+    display: flex;
+    justify-content: center;
 }
 
-.grid{
-    display: grid;
+.cards{
+    /* display: grid;
     grid-template-columns: auto auto auto auto auto;
-    /* justify-content: space-between */
-    align-content: space-around
+    */
+    display: flex;
+    flex-flow: row ;
+    flex-flow:  wrap;
+    justify-content: center;
+    /* gap: 20px; */
+    /* align-content: space-around  */
+
 }
 
 .card{
-    size-adjust: 200%;
+    /* size-adjust: 200%; */
     opacity: 65%;
-    display: grid;
+    display: flex;
     transition: opacity 0.8s;
+    flex-basis: 18%;
     /* grid-template-columns: 25% 25% 25% 25% ; */
     /* align-content: space-between */
 }
@@ -44,7 +54,8 @@ body{
 }
 
 select{
-    border-radius: 8px;
+    border-radius: 12px;
+    height: 25px;
 }
 
 label{
@@ -55,3 +66,7 @@ label{
     font-size: 10pt;
     font-weight: bold;
 }
+/* .searchbar{
+   display: flex;
+   flex-flow: row wrap;
+} */

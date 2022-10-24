@@ -97,7 +97,7 @@ export default function Home(props) {
 
         <div>
           <label name="region">  Region</label>
-          <select name="region" onChange={(e) => handleSelect(e)}>
+          <select  name="region" onChange={(e) => handleSelect(e)}>
             <option value="All">All</option>
             <option value="Africa">Africa</option>
             <option value="Asia">Asia</option>
@@ -138,7 +138,7 @@ export default function Home(props) {
           />
       </div>
 
-      <div className={style.grid}>
+      <div className={style.cards}>
         {!currentCountries?
         <h1>Country Not Found</h1>
         :currentCountries.map((c) => (

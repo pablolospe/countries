@@ -1,21 +1,24 @@
 .list{
     line-height: 1.2em; font-size: 10pt;
     display: flex;
-    flex-wrap: nowrap;
+    flex-wrap: wrap;
     color: rgb(255, 255, 255);
-    align-items: center;
-    justify-content:space-around;
+    z-index: 1;
+    /* align-items: center;
+    justify-content:space-around; */
     
 }
 
 .navbar{
     background-color: black;
-    opacity: 0.65;
+    opacity: 0.40;
    
     box-shadow: 0px 5px 10px 0px #aaa;
     position: absolute 30px;
     width: 100%;
     z-index: 100; 
+    display: flex;
+    justify-content: space-between;
 }
 
 .navbarcontainer{
@@ -26,6 +29,7 @@
 }
 
 li a{
+    
     padding: 4px;
     transition: text-shadow 0.5s ease-in-out;
     transition: font-size 0.4s ease-in-out;
