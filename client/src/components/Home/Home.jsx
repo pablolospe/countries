@@ -82,7 +82,6 @@ export default function Home(props) {
 
   return (
     <>
-    {console.log(currentPage)}
     <div className={style.container}>
       <div className={style.filters}>
         <div>

@@ -13,7 +13,7 @@ export const DELETE_ACTIVITY = 'DELETE_ACTIVITY';
 export const CLEAR_DETAIL = 'CLEAR_DETAIL';
 
 export const getAllCountries = () => (dispatch) =>
-    axios.get('/countries')
+    axios.get('http://localhost:3001/countries')
         .then((response) =>
             dispatch({ type: GET_ALL_COUNTRIES, payload: response.data })
         );
@@ -22,7 +22,7 @@ export function getCountryDetail(id) {
     return async function (dispatch) {
         try {
             const countryDetail = await axios.get(
-                `/countries/${id}`
+                `http://localhost:3001/countries/${id}`
             );
             return dispatch({
                 type: GET_COUNTRY_DETAIL,
@@ -37,7 +37,7 @@ export function getCountryDetail(id) {
 export const createActivity = (values) => {
     return async function(){
         try {
-            await axios.post('/activities', values);   
+            await axios.post("http://localhost:3001/activities", values);   
             return { type: CREATE_ACTIVITY, payload: {...values} }  
         } catch (error) {
             console.log(error);
@@ -53,6 +53,10 @@ export const createActivity = (values) => {
   //     season: "",
   //     countries: [],
   //   });
+
+
+
+    
 };
 
 // export const createActivity = (values) => {
@@ -63,7 +67,7 @@ export function getCountryName(name) {
     return async function (dispatch) {
         // dispatch(loading())
         try {
-            const countryDetail = await axios.get('/countries?name=' + name);
+            const countryDetail = await axios.get('http://localhost:3001/countries?name=' + name);
             return dispatch({
                 type: GET_COUNTRY_NAME,
                 payload: countryDetail.data,
@@ -100,7 +104,7 @@ export function orderByPopulation(payload){
 }
 
 export const getAllActivities=()=>(dispatch)=>{
-    axios.get('/activities')
+    axios.get('http://localhost:3001/activities')
         .then((response) =>
             dispatch({ type: GET_ALL_ACTIVITIES, payload: response.data })
         );
@@ -126,7 +130,7 @@ export function deleteActivity(id){
     return async function (dispatch) {
         try {
             const deleteAc = await axios.delete(
-                `/activities/${id}`
+                `http://localhost:3001/activities/${id}`
             );
             return dispatch({
                 type: DELETE_ACTIVITY,
