@@ -34,15 +34,15 @@ export default function Home(props) {
   const currentCountries = currentPage===1?allCountries.slice(0,9):
     currentPage===26?allCountries.slice(249,allCountries.length):
     allCountries.slice(indexOfFirstCountry,indexOfLastCountry);
+
+  const numPage = Math.ceil(allCountries.length / countriesPerPage);
   
   const activitiesNames = allActivities.map(e=> e.name)
   const activitiesNotRepeated = activitiesNames.filter((act, index)=>{
     return activitiesNames.indexOf(act) === index;
   })
 
-  const numPage = Math.ceil(allCountries.length / countriesPerPage);
-
-  const paginado = (pageNumber) => {
+  const paginado = function(pageNumber) {
     setCurrentPage(pageNumber);
   };
 

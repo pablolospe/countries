@@ -1,16 +1,33 @@
-html { 
-  opacity: 0.98;
+
+
+
+.landing{
+  /* margin-top: 100; */
   background: url(../../pexels-andrea-piacquadio-3769138.jpg) no-repeat center center fixed; 
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
-}
-
-
-.landing{
+  height: 500px;
+  margin: 40px;
     display: grid;
     justify-content: center;
     align-items: center;
-    
+    /* opacity: 0.98; */
+}
+
+.button a{
+  padding: 4px;
+  transition: text-shadow 0.5s ease-in-out;
+  transition: font-size 0.4s ease-in-out;
+  font-weight: bold;
+}
+
+.button:hover a{
+  font-size: smaller;
+  color: rgb(0, 0, 0); 
+  text-shadow: 0 0 10px black,
+              0 0 10px black,
+              0 0 20px black,
+              0 0 20px black;  
 }

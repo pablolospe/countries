@@ -6,9 +6,9 @@ import style from './LandingPage.module.css'
 export default function LandingPage (){
     return(
         <div className={style.landing}>
-            <h2>LANDING PAGE!!</h2>
+            {/* <h2>LANDING PAGE!!</h2> */}
             <Link to="/home">
-            <button>ingresar</button>
+            <button className={style.button}>ingresar</button>
             </Link>
            
         </div>

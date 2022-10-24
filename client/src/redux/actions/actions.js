@@ -35,8 +35,33 @@ export function getCountryDetail(id) {
 }
 
 export const createActivity = (values) => {
-    return { type: CREATE_ACTIVITY, payload: {...values} }
+    return async function(){
+        try {
+            await axios.post("http://localhost:3001/activities", values);   
+            return { type: CREATE_ACTIVITY, payload: {...values} }  
+        } catch (error) {
+            console.log(error);
+        }
+    }
+//   let newActiv = dispatch(createActivity(input)).payload;
+  //   // alert('New Activity Created')
+  //   axios.post("http://localhost:3001/activities", newActiv);
+  //   setInput({
+  //     name: "",
+  //     difficulty: 0,
+  //     duration: 0,
+  //     season: "",
+  //     countries: [],
+  //   });
+
+
+
+    
 };
+
+// export const createActivity = (values) => {
+//     return { type: CREATE_ACTIVITY, payload: {...values} }
+// };
 
 export function getCountryName(name) {
     return async function (dispatch) {
@@ -57,7 +82,6 @@ export function getCountryName(name) {
 }
 
 export function filterCountriesByRegion(payload){
-    console.log(payload);
     return{
         type: FILTER_BY_REGION,
         payload,
@@ -65,7 +89,6 @@ export function filterCountriesByRegion(payload){
 }
 
 export function orderAlphabetically(payload){
-    console.log(payload);
     return{
         type: ORDER_ALPHABETICALLY,
         payload

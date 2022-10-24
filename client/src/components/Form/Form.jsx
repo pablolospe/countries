@@ -54,19 +54,24 @@ export default function Form(props) {
 
   const submitHandler = (event) => {
     event.preventDefault();
-    let newActiv = dispatch(createActivity(input)).payload;
-    // alert('New Activity Created')
-    axios.post("http://localhost:3001/activities", newActiv);
-    setInput({
-      name: "",
-      difficulty: 0,
-      duration: 0,
-      season: "",
-      countries: [],
-    });
-    // history.push('/home');
+    dispatch(createActivity(input));
     window.location.reload(false);
   };
+
+  // const submitHandler = (event) => {
+  //   event.preventDefault();
+  //   let newActiv = dispatch(createActivity(input)).payload;
+  //   // alert('New Activity Created')
+  //   axios.post("http://localhost:3001/activities", newActiv);
+  //   setInput({
+  //     name: "",
+  //     difficulty: 0,
+  //     duration: 0,
+  //     season: "",
+  //     countries: [],
+  //   });
+  //   window.location.reload(false);
+  // };
 
   function handleSelected(e) {
     setInput({

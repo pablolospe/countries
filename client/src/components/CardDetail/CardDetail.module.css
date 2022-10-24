@@ -10,10 +10,10 @@ p {
     justify-content: center;
 }
 
-/* .activities{
+.activities{
     display: grid;
     grid-template-columns:auto auto auto;
-} */
+}
 
 .card{
     /* border: solid 2px; */
