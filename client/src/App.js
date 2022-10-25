@@ -2,7 +2,6 @@ import './App.css';
 import React from "react";
 import { Route } from 'react-router-dom'
 import LandingPage from './components/LandingPage/LandingPage';
-// import Card from './components/Card/Card.jsx';
 import CardDetail from './components/CardDetail/CardDetail.jsx';
 import Navbar from './components/Navbar/Navbar';
 import Activities from './components/Activities/Activities.jsx'
@@ -13,9 +12,7 @@ import Home from './components/Home/Home'
 
 function App() {
   return (
-    <div className="App">
-      
-      
+    <div className="App">     
       <Route exact path={"/"} component={LandingPage} />
       <Route path={"/home"} component={Navbar} />
       <Route path={"/activities"} component={Navbar} />

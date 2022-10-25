@@ -9,7 +9,7 @@ export default function Navbar() {
         <div className={style.navbarcontainer}>
           <ul className={style.menuitems}>
             <li>
-              <Link to="/home"> Home </Link>
+              <Link to="/home"> HOME </Link>
             </li>
             <li>
               <Link to="/activities"> Activities </Link>

@@ -14,7 +14,7 @@ export default function SearchBar({ paginado }) {
   const handlerSubmit = (e) => {
     e.preventDefault();
     dispatch(getCountryName(countryName));
-    // paginado(1);
+    paginado(1);
     setCountryName("");
   };
   

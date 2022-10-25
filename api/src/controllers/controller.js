@@ -15,15 +15,8 @@ const getApiInfo = async () => {
             population: el.population,
         }
     })
-    // console.log(apiInfo);
     return apiInfo;
 };
-
-// const saveCountriesToDb = async function () {
-//     const data = await getApiInfo();
-//     const db_countries = await Country.bulkCreate(data);
-//     return db_countries
-// }
 
 const saveCountriesToDb = async function () {
     const data = await getApiInfo();
@@ -88,30 +81,6 @@ const getActivity = async () => {
     })
     return activities;
 }
-
-
-// const createActivity = async (body) => {
-//     const { name, difficulty, duration, season, pais } = body;
-//     // if ((!name, !hp, !type)) throw new Error('Faltan datos');
-//     let newActiv = await Activity.create({
-//         name,
-//         difficulty,
-//         duration,
-//         season,
-//         pais,
-//     });
-//     const paises = await Country.findAll({
-//         where: {
-//             name: pais,
-//         },
-//     });
-//     //paises ---> paises de la db
-//     newActiv.addCountry(paises);
-//     // return Activity.findAll();
-//     return 'holisss'
-// };
-
-
 
 
 module.exports = { getApiInfo, saveCountriesToDb, getInfoDB, getActivity }

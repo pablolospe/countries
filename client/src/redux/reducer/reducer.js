@@ -101,7 +101,6 @@ const reducer = (state = initialState, action) => {
         case DELETE_ACTIVITY:
             const allActivities = state.activities;
             const activities = allActivities.filter(a=> a.id !== action.payload)
-            console.log(activities);
             return {
                 ...state,
                 activities: activities

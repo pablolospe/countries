@@ -2,10 +2,7 @@ const { Router } = require('express');
 const { getInfoDB } = require('../controllers/controller');
 const { Country, Activity } = require('../db.js');
 
-
-
 const router = Router();
-
 
 router.get('/', async (req, res) => {
     const { name } = req.query;
@@ -37,10 +34,6 @@ router.get("/:id", async (req, res) => {
         res.status(404).send({ message: error.message });
     }
 });
-
-// Obtener el detalle de un país en particular
-// Debe traer solo los datos pedidos en la ruta de detalle de país
-// Incluir los datos de las actividades turísticas correspondientes
 
 
 module.exports = router;

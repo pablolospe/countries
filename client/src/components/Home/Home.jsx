@@ -26,7 +26,7 @@ export default function Home(props) {
   const [currentPage, setCurrentPage] = useState(1);
   const [countriesPerPage, setCountriesPerPage] = useState(9.99);
   const [order, setOrder] = useState();
-
+  
   
   const indexOfLastCountry = currentPage * countriesPerPage;
   const indexOfFirstCountry = indexOfLastCountry - countriesPerPage;
@@ -42,7 +42,11 @@ export default function Home(props) {
     return activitiesNames.indexOf(act) === index;
   })
 
-  const paginado = function(pageNumber) {
+  // const paginado = function(pageNumber) {
+  //   setCurrentPage(pageNumber);
+  // };
+
+  const paginado = (pageNumber) => {
     setCurrentPage(pageNumber);
   };
 
@@ -144,7 +148,7 @@ export default function Home(props) {
       <div className={style.cards}>
         {
         !currentCountries.length?
-        <h1>Country Not Found</h1>
+        <h1 className={style.warning}>Country Not Found</h1>
         :currentCountries.map((c) => (
           <div key={c.id} className={style.card}>
           <Card
@@ -161,18 +165,3 @@ export default function Home(props) {
     </>
   );
 }
-
-
-
-
-// <div className={currentCountries.length && Style.allCards}> 
-//                 {loading?(<Loading/>):currentCountries.length? 
-//                     currentCountries.map(country => 
-//                     <CountryCard    key = {country.id}
-//                                     name = {country.name}
-//                                     id = {country.id}
-//                                     img = {country.flag_img}
-//                                     continent = {country.continent}
-//                                     population= {country.population}
-//                 />):<NotFound/>} 
-//             </div>

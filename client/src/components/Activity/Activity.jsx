@@ -18,7 +18,6 @@ export default function Activity({
   function handleDelete(e){
     e.preventDefault()
     dispatch(deleteActivity(id))
-    console.log(id);
   }
 
   return (

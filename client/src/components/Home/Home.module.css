@@ -22,7 +22,6 @@ body{
 }
 
 .paginado{
-    /* display: grid; */
     display: flex;
     align-items: center;
     justify-content: center;
@@ -30,27 +29,18 @@ body{
 }
 
 .cards{
-    /* display: grid;
-    grid-template-columns: auto auto auto auto auto;
-    */
     display: flex;
     flex-flow: row wrap;
-    
     align-items: center;
     justify-content: center;
-    /* justify-content: space-around; */
-    /* gap: 20px; */
-    /* align-content: space-around  */
 }
 
 .card{
-    opacity: 65%;
     display: flex;
+    opacity: 65%;
     transition: opacity 0.8s;
     flex-basis: 18%;
-    /* grid-template-columns: 25% 25% 25% 25% ; */
-    /* align-content: space-between */
-}
+  }
 
 .card:hover{
     opacity: 100%;
@@ -68,4 +58,11 @@ label{
     line-height: 0.5em; 
     font-size: 10pt;
     font-weight: bold;
+}
+
+.warning{
+    opacity: 60%;
+    width: 330px;
+    /* border-radius: 50px;
+    box-shadow: -5px 5px 60px black; */
 }

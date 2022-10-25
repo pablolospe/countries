@@ -1,7 +1,24 @@
-h1{
-
-    /* font-size: calc(10px + 2vmin); */
-    color: white;
+.title{
+    color: rgb(255, 255, 195);
+    text-shadow: -4px 4px 6px black;
+    line-height: 0.5em; 
+    
     border-radius: 5px;
-    opacity: 70%;
+    opacity: 90%;
 }
+
+.button{
+    background-color: rgba(255, 236, 236, 0.8);
+    width: 70px;
+    height: 40px;
+    cursor:pointer ;
+    border-style:solid;
+    opacity: 70%;
+    transition: opacity 0.5s;
+    border-radius: 50px;
+    box-shadow: -10px 10px 40px black;
+  }
+  .button:hover{
+    opacity: 100%;
+  }
+  
