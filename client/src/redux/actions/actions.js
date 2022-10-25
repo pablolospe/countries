@@ -43,16 +43,6 @@ export const createActivity = (values) => {
             console.log(error);
         }
     }
-//   let newActiv = dispatch(createActivity(input)).payload;
-  //   // alert('New Activity Created')
-  //   axios.post("http://localhost:3001/activities", newActiv);
-  //   setInput({
-  //     name: "",
-  //     difficulty: 0,
-  //     duration: 0,
-  //     season: "",
-  //     countries: [],
-  //   });
 };
 
 // export const createActivity = (values) => {

@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import axios from "axios";
 import { useDispatch, useSelector } from "react-redux";
 import { createActivity, getAllCountries } from "../../redux/actions/actions";
 import style from "./Form.module.css";
@@ -58,25 +57,10 @@ export default function Form(props) {
     window.location.reload(false);
   };
 
-  // const submitHandler = (event) => {
-  //   event.preventDefault();
-  //   let newActiv = dispatch(createActivity(input)).payload;
-  //   // alert('New Activity Created')
-  //   axios.post("http://localhost:3001/activities", newActiv);
-  //   setInput({
-  //     name: "",
-  //     difficulty: 0,
-  //     duration: 0,
-  //     season: "",
-  //     countries: [],
-  //   });
-  //   window.location.reload(false);
-  // };
-
   function handleSelected(e) {
     setInput({
       ...input,
-      countries: [...input.countries, e.target.value], //OJO CON EL SET
+      countries: [...input.countries, e.target.value],
     });
   }
 
