@@ -1,4 +1,5 @@
 const { Router } = require('express');
+const { Association } = require('sequelize');
 const { getActivity } = require('../controllers/controller');
 const { Country, Activity } = require('../db');
 
@@ -55,5 +56,6 @@ router.delete('/:id', async (req, res) => {
         res.status(400).send(error.message)
     }
 })
+
 
 module.exports = router;

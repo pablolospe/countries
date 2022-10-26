@@ -4,13 +4,12 @@
     border: solid 1px black;
     border-style: solid;
     border-radius: 8px;
-    transition: background-color 0.5s;
-    
+    transition: background-color 1s;
 }
 
 .button:hover{
-    background-color: red;
-    font-weight: bold;
+    background-color: rgb(249, 52, 52);
+    /* font-weight: bold; */
 }
 
 .card{

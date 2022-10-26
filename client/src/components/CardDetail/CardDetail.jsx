@@ -37,8 +37,8 @@ export default function CardDetail(props) {
           <div>
 
           <div >
-            {/* <div>{(activities.length) (<h2>Activities:</h2>)  }
-            </div> */}
+            <div>{c.activities.length? (<h3 className={style.h3}>Activities:</h3>):(<></>)}
+            </div>
             <ul className={style.activities}>
             {c.activities?.map((ac, pos) => (
               <div key={pos}>

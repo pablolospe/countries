@@ -5,12 +5,16 @@
 }
 
 .h1{
-    color: black;
+    color: rgb(52, 52, 52);
     font-weight: bolder;
-    opacity: 80%;
-    
-    
+    opacity: 750%;
 }
+.h3{
+    color: rgb(52, 52, 52);
+    font-weight: bolder;
+    opacity: 750%;
+}
+
 p {
     font-weight: bold;
     font-size: smaller;

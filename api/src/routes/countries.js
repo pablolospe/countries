@@ -27,8 +27,8 @@ router.get("/:id", async (req, res) => {
                 where: { name: id }
             })
             countryId.length ?
-            res.status(200).json(countryId) :
-            res.status(400).send('Country not found')
+                res.status(200).json(countryId) :
+                res.status(400).send('Country not found')
         }
     } catch (error) {
         res.status(404).send({ message: error.message });

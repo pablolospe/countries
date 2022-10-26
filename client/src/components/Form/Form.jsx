@@ -13,9 +13,7 @@ function validate(input) {
     errors.duration = "duration is required";
   } else if (!input.season) {
     errors.season = "season is required";
-  } else if (!input.countries.length) {
-    errors.countries = "at least one country is required";
-  }
+  } 
   return errors;
 }
 
@@ -141,7 +139,7 @@ export default function Form(props) {
                   <option key={pos}>{c.name}</option>
                 ))}
               </select>
-              {/* {errors.countries && (<p className={style.error}>{errors.countries} </p>)} */}
+             
             </div>
 
             <div>
@@ -173,7 +171,6 @@ export default function Form(props) {
                 </div>
               </div>
             ))}
-
           </div>
         </form>
       </div>

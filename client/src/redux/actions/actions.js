@@ -75,14 +75,6 @@ export function sort(payload){
     }
 }
 
-// export function orderByPopulation(payload){
-//     console.log(payload);
-//     return{
-//         type: ORDER_BY_POPULATION,
-//         payload
-//     }
-// }
-
 export const getAllActivities=()=>(dispatch)=>{
     axios.get('/activities')
         .then((response) =>
@@ -103,7 +95,6 @@ export function cleanDetail() {
       payload: [],
     };
   }
-
 
 export function deleteActivity(id){
     return async function (dispatch) {

@@ -9,25 +9,11 @@
     justify-content: center;
 }
 .card{
-    
-    /* size-adjust: 200%; */
-    /* display: flex; */
     opacity: 65%;
     flex: none;
     flex-basis: 15%;
-    /* align-content: space-between */
 }
 .cartel{
     opacity: 70%;
     width: 330px;
-    /* background-color: #282c34;
-    max-height: 100vh;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
-    font-size: calc(10px + 2vmin);
-    color: white;
-    border-radius: 5px;
-    opacity: 70%; */
 }

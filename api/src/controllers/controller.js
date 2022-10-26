@@ -36,8 +36,6 @@ const saveCountriesToDb = async function () {
     })
 }
 
-
-
 const getInfoDB = async () => {
     const countries = await Country.findAll({
         attributes: [

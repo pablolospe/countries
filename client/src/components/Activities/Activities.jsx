@@ -34,7 +34,6 @@ export default function Activities({props, id,name,difficulty,duration,season}) 
               duration={a.duration}
               season={a.season}
               countries={a.countries}
-            
             />
             </div>
           ))
