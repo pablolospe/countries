@@ -21,7 +21,7 @@ export default function Activities({props, id,name,difficulty,duration,season}) 
         {
           allActivities.length<1?
           <div className={style.cartel}>
-            <h1>Activities not found</h1>
+            <h1>Activities not found...</h1>
           </div>:
           
           allActivities.map((a)=>(

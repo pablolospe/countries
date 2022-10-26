@@ -145,27 +145,8 @@ export default function Form(props) {
               {/* {errors.countries && (<p className={style.error}>{errors.countries} </p>)} */}
             </div>
 
-            {input.countries.map((el, pos) => (
-              <div className={style.countrydiv} key={pos}>
-                <div>
-                  <p className={style.countryname}>{el}</p>
-                </div>
-
-                <div>
-                  <button
-                    className={style.button}
-                    type="button"
-                    name={el.name}
-                    onClick={() => handleDelete(el)}
-                  >
-                    x
-                  </button>
-                </div>
-              </div>
-            ))}
-
             <div>
-              <button
+              <button className={style.submitbtn}
                 type="submit"
                 disabled={
                   !input.name ||
@@ -175,10 +156,25 @@ export default function Form(props) {
                   errors.season ||
                   input.countries.length < 1
                 }
-              >
-                CREATE
-              </button>
+                      >CREATE</button>
             </div>
+            {input.countries.map((el, pos) => (
+              <div className={style.countrydiv} key={pos}>
+                <div>
+                  <p className={style.countryname}>{el}</p>
+                </div>
+
+                <div>
+                  <button
+                    className={style.countrybtn}
+                    type="button"
+                    name={el.name}
+                    onClick={() => handleDelete(el)}
+                      >x</button>
+                </div>
+              </div>
+            ))}
+
           </div>
         </form>
       </div>

@@ -23,7 +23,7 @@ export default function CardDetail(props) {
       detail?.map((c, pos) => (
           <div key={pos} className={style.carddetail}>
             <div>  
-              <h1>{c.name}</h1>
+              <h1 className={style.h1}>{c.name}</h1>
               <img className={style.flag} src={c.flag} alt='flag' />
             </div>
             <div> 

@@ -51,15 +51,17 @@
 ul {
   list-style: none;
 }
-
 a:link, a:visited, a:active {
   text-decoration:none;
-  color: lightgray;
+  color: rgb(255, 255, 255);
 }
 
+
 html {
-  
   font-family: Arial, Helvetica, sans-serif;
   border-style: none;
-  
+}
+
+button{
+  cursor: pointer;
 }

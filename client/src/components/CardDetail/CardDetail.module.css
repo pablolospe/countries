@@ -4,6 +4,13 @@
     grid-template-columns: repeat(auto-fill, minimax(15rem, 1fr))
 }
 
+.h1{
+    color: black;
+    font-weight: bolder;
+    opacity: 80%;
+    
+    
+}
 p {
     font-weight: bold;
     font-size: smaller;
@@ -11,8 +18,10 @@ p {
 }
 
 .activities{
-    display: grid;
-    grid-template-columns:auto auto auto;
+    display: flex;
+    justify-content: space-evenly;
+    justify-items: center;
+    /* grid-template-columns:auto auto auto; */
 }
 
 .card{

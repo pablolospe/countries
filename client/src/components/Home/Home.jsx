@@ -20,14 +20,25 @@ export default function Home(props) {
   useEffect(() => {
     dispatch(getAllCountries());
   }, [dispatch]);
-
+  
   const allCountries = useSelector((state) => state.currentCountries);
   const allActivities = useSelector((state) => state.activities);
   const [currentPage, setCurrentPage] = useState(1);
   const [countriesPerPage, setCountriesPerPage] = useState(9.99);
   const [order, setOrder] = useState();
   
+  const [activ, setActiv]= useState({
+    1:true
+  })
   
+  
+  //   useEffect(() => {
+  //     if (allCountries.length === 0) {
+  //         dispatch(getAllCountries());
+  //     }
+  // }, [dispatch, allCountries]);
+
+
   const indexOfLastCountry = currentPage * countriesPerPage;
   const indexOfFirstCountry = indexOfLastCountry - countriesPerPage;
   
@@ -42,11 +53,7 @@ export default function Home(props) {
     return activitiesNames.indexOf(act) === index;
   })
 
-  // const paginado = function(pageNumber) {
-  //   setCurrentPage(pageNumber);
-  // };
-
-  const paginado = (pageNumber) => {
+  const paginado = function(pageNumber) {
     setCurrentPage(pageNumber);
   };
 
@@ -67,22 +74,34 @@ export default function Home(props) {
   }
 
   function handleSelect(e) {
+    e.preventDefault();
     dispatch(filterCountriesByRegion(e.target.value));
+    paginadoActiv()
     paginado(1);
   }
 
   function handleSort(e) {
     e.preventDefault();
     dispatch(orderAlphabetically(e.target.value));
-    paginado(1);
     setOrder(e.target.value);
+    paginadoActiv()
+    paginado(1);
   }
 
   function handleActivity(e) {
     e.preventDefault();
     dispatch(filterActivity(e.target.value));
+    paginadoActiv()
     paginado(1);
   }
+  const paginadoActiv=(value = 1) => {
+      //Hover pagina
+      const clicked = value;
+      setActiv({
+          [clicked]: true,
+      });
+  };
+  
 
   return (
     <>
@@ -135,7 +154,9 @@ export default function Home(props) {
 
       <div className={style.paginado}>
         <Paginado
-          allCountries={allCountries.length}
+          activ={activ}
+          setActiv={setActiv}
+          allCountriesLength={allCountries.length}
           countriesPerPage={countriesPerPage}
           paginado={paginado}
           currentPage={currentPage}

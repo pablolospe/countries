@@ -45,10 +45,6 @@ export const createActivity = (values) => {
     }
 };
 
-// export const createActivity = (values) => {
-//     return { type: CREATE_ACTIVITY, payload: {...values} }
-// };
-
 export function getCountryName(name) {
     return async function (dispatch) {
         // dispatch(loading())
