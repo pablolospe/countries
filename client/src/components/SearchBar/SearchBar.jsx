@@ -3,7 +3,7 @@ import { useDispatch } from "react-redux";
 import { getCountryName } from "../../redux/actions/actions.js";
 import style from "./SearchBar.module.css";
 
-export default function SearchBar({ paginado }) {
+export default function SearchBar({ paginado, paginadoActiv }) {
   const [countryName, setCountryName] = useState("");
   const dispatch = useDispatch();
 
@@ -14,6 +14,7 @@ export default function SearchBar({ paginado }) {
   const handlerSubmit = (e) => {
     e.preventDefault();
     dispatch(getCountryName(countryName));
+    paginadoActiv()
     paginado(1);
     setCountryName("");
   };
@@ -22,6 +23,9 @@ export default function SearchBar({ paginado }) {
     e.preventDefault();
     dispatch(getCountryName(''));
     paginado(1);
+    document.getElementById("order").getElementsByTagName('option')[0].selected = 'Order by...'
+    document.getElementById("region").getElementsByTagName('option')[0].selected = 'All'
+    document.getElementById("activity").getElementsByTagName('option')[0].selected = 'Select an activity'
   };
 
   return (

@@ -31,7 +31,6 @@ export default function Form(props) {
     duration: 0,
     season: "",
     countries: [],
-    // allCountries: [],
   });
 
   useEffect(() => {

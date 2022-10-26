@@ -3,7 +3,7 @@ import { GET_ALL_COUNTRIES,
     CREATE_ACTIVITY, 
     GET_COUNTRY_NAME, 
     FILTER_BY_REGION, 
-    ORDER_ALPHABETICALLY, 
+    SORT, 
     GET_ALL_ACTIVITIES,
     FILTER_ACTIVITY, 
     DELETE_ACTIVITY,
@@ -15,6 +15,7 @@ const initialState = {
     activities: [],
     countryDetail: [],
     currentCountries: [],
+    currentCountriesAux: [],
 };
 
 const reducer = (state = initialState, action) => {
@@ -41,16 +42,16 @@ const reducer = (state = initialState, action) => {
                 currentCountries: action.payload
             }
         case FILTER_BY_REGION:
-            const allCountries = state.countries;
-            const statusFiltered = action.payload === 'All' ? allCountries : allCountries.filter(e => e.region === action.payload)
-            // console.log(statusFiltered);
+            let countries = state.countries;   
+            const statusFiltered = action.payload === 'All' ? 
+            countries : countries.filter(e => e.region === action.payload)
             return {
                 ...state,
                 currentCountries: statusFiltered,
             }
-        case ORDER_ALPHABETICALLY:
-            let sortedArrByPopulation = state.countries;
-            let orderObject = state.countries;
+        case SORT:
+            let sortedArrByPopulation = state.currentCountries;
+            let orderObject = state.currentCountries;
             let sortedArr = [];
 
             if (action.payload === 'asc') {

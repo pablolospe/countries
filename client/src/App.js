@@ -17,11 +17,11 @@ function App() {
       <Route path={"/home"} component={Navbar} />
       <Route path={"/activities"} component={Navbar} />
       <Route exact path={"/home"} component={Home} />
-      <Route exact path={"/activities"} component={Activities} />
       <Route exact path={"/home/form"} component={Form} />
+      <Route exact path={"/home/about"} component={About} />
+      <Route exact path={"/activities"} component={Activities} />
       <Route exact path={"/detail/:id"} component={CardDetail} />
       <Route exact path={"/countries?name="} component={CardDetail} />
-      <Route exact path={"/home/about"} component={About} />
     </div>
   );
 }

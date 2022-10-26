@@ -7,8 +7,7 @@ export const CREATE_ACTIVITY = 'CREATE_ACTIVITY';
 export const GET_COUNTRY_NAME = 'GET_COUNTRY_NAME';
 export const FILTER_BY_REGION = 'FILTER_BY_REGION';
 export const FILTER_ACTIVITY = 'FILTER_ACTIVITY';
-export const ORDER_ALPHABETICALLY = 'ORDER_ALPHABETICALLY';
-export const ORDER_BY_POPULATION = 'ORDER_BY_POPULATION';
+export const SORT = 'SORT';
 export const DELETE_ACTIVITY = 'DELETE_ACTIVITY';
 export const CLEAR_DETAIL = 'CLEAR_DETAIL';
 
@@ -47,7 +46,6 @@ export const createActivity = (values) => {
 
 export function getCountryName(name) {
     return async function (dispatch) {
-        // dispatch(loading())
         try {
             const countryDetail = await axios.get('/countries?name=' + name);
             return dispatch({
@@ -70,20 +68,20 @@ export function filterCountriesByRegion(payload){
     }
 }
 
-export function orderAlphabetically(payload){
+export function sort(payload){
     return{
-        type: ORDER_ALPHABETICALLY,
+        type: SORT,
         payload
     }
 }
 
-export function orderByPopulation(payload){
-    console.log(payload);
-    return{
-        type: ORDER_BY_POPULATION,
-        payload
-    }
-}
+// export function orderByPopulation(payload){
+//     console.log(payload);
+//     return{
+//         type: ORDER_BY_POPULATION,
+//         payload
+//     }
+// }
 
 export const getAllActivities=()=>(dispatch)=>{
     axios.get('/activities')
@@ -97,7 +95,6 @@ export function filterActivity(payload){
         type: FILTER_ACTIVITY,
         payload,
     }
-
 }
 
 export function cleanDetail() {

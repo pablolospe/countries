@@ -7,13 +7,13 @@ export default function Card({ id, name, flag, region }) {
     <>
       <div className={style.card} >
         <Link to={`/detail/${id}`}>
-          <div className={style.title}>
-            <h5>{name}</h5>
-            <h6>( {region} )</h6>
-          </div>
           {/* <p>{region}</p> */}
           <div className={style.flagcase}>
           <img className={style.flag} src={flag} alt="acá va la imagen" width='200' height='135'/>
+          </div>
+          <div className={style.title}>
+            <h5>{name}</h5>
+            <h6>( {region} )</h6>
           </div>
         </Link>
         

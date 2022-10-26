@@ -1,14 +1,14 @@
 import React from "react";
 import { useEffect, useState } from "react";
-import Card from "../Card/Card";
 import { useDispatch, useSelector } from "react-redux";
 import {
   getAllCountries,
   filterCountriesByRegion,
-  orderAlphabetically,
+  sort,
   getAllActivities,
   filterActivity
 } from "../../redux/actions/actions";
+import Card from "../Card/Card";
 import Paginado from "../Paginado/Paginado";
 import SearchBar from "../SearchBar/SearchBar";
 import style from './Home.module.css'
@@ -23,21 +23,13 @@ export default function Home(props) {
   
   const allCountries = useSelector((state) => state.currentCountries);
   const allActivities = useSelector((state) => state.activities);
+  const [order, setOrder] = useState();
   const [currentPage, setCurrentPage] = useState(1);
   const [countriesPerPage, setCountriesPerPage] = useState(9.99);
-  const [order, setOrder] = useState();
   
   const [activ, setActiv]= useState({
     1:true
   })
-  
-  
-  //   useEffect(() => {
-  //     if (allCountries.length === 0) {
-  //         dispatch(getAllCountries());
-  //     }
-  // }, [dispatch, allCountries]);
-
 
   const indexOfLastCountry = currentPage * countriesPerPage;
   const indexOfFirstCountry = indexOfLastCountry - countriesPerPage;
@@ -46,7 +38,7 @@ export default function Home(props) {
     currentPage===26?allCountries.slice(249,allCountries.length):
     allCountries.slice(indexOfFirstCountry,indexOfLastCountry);
 
-  const numPage = Math.ceil(allCountries.length / countriesPerPage);
+  const numOfLastPage = Math.ceil(allCountries.length / countriesPerPage);
   
   const activitiesNames = allActivities.map(e=> e.name)
   const activitiesNotRepeated = activitiesNames.filter((act, index)=>{
@@ -70,7 +62,7 @@ export default function Home(props) {
   }
 
   function handleNext() {
-    if (numPage !== currentPage) setCurrentPage(currentPage + 1);
+    if (numOfLastPage !== currentPage) setCurrentPage(currentPage + 1);
   }
 
   function handleSelect(e) {
@@ -82,7 +74,7 @@ export default function Home(props) {
 
   function handleSort(e) {
     e.preventDefault();
-    dispatch(orderAlphabetically(e.target.value));
+    dispatch(sort(e.target.value));
     setOrder(e.target.value);
     paginadoActiv()
     paginado(1);
@@ -95,7 +87,6 @@ export default function Home(props) {
     paginado(1);
   }
   const paginadoActiv=(value = 1) => {
-      //Hover pagina
       const clicked = value;
       setActiv({
           [clicked]: true,
@@ -109,18 +100,18 @@ export default function Home(props) {
       <div className={style.filters}>
         <div>
           <label name="order by">  Order</label>
-          <select name="abc" onChange={(e) => handleSort(e)}>
-            <option > Oreder by... </option>
-            <option value="asc">A-Z</option>
-            <option value="desc">Z-A</option>
-            <option value="more">More to Less</option>
-            <option value="less">Less to More</option>  
+          <select id="order" name="abc" onChange={(e) => handleSort(e)}>
+            <option > Order by... </option>
+            <option value="asc">A to Z</option>
+            <option value="desc">Z to A</option>
+            <option value="more">More to Less Population</option>
+            <option value="less">Less to More Population</option>  
           </select>
         </div>
 
         <div>
           <label name="region">  Region</label>
-          <select  name="region" onChange={(e) => handleSelect(e)}>
+          <select id="region" name="region" onChange={(e) => handleSelect(e)}>
             <option value="All">All</option>
             <option value="Africa">Africa</option>
             <option value="Asia">Asia</option>
@@ -133,7 +124,7 @@ export default function Home(props) {
 
         <div>
           <label name="activity">  Activity</label>
-          <select onChange={handleActivity} name="activity">
+          <select id="activity" onChange={handleActivity} name="activity">
           <option value='unfiltered' > Select an activity  </option>
             {activitiesNotRepeated?.map((ac) => (
               <option key={ac} value={ac}>
@@ -147,6 +138,7 @@ export default function Home(props) {
 
         <div className={style.searchbar}>
           <SearchBar 
+          paginadoActiv={paginadoActiv}
           paginado={paginado}
           currentPage={currentPage}
           />

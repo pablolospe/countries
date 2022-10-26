@@ -23,7 +23,10 @@ export default function Activity({
   return (
     <>
       <div className={style.card} key={id}>
-        <button className={style.button} onClick={(e)=>handleDelete(e)}>Delete Activity</button>
+        <button className={style.button} 
+                onClick={(e)=>handleDelete(e)}>
+                  Delete Activity</button>
+        <p> ID: {id}</p>
         <h3> Activity: {name}</h3>
         <p> Difficulty: {difficulty}</p>
         <p> Duration: {duration}</p>

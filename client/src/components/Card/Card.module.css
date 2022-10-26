@@ -1,16 +1,17 @@
 .card{
-    height: 160px;
+    height: 180px;
     width: 120px;
     display: flex;
     align-content: space-between;
     /* align-items: center;
     justify-content: center; */
-    /* border: 1px solid black; */
     
 }
 
 .title{
-    
+    /* border: 1px solid black; */
+    margin-top: 0px;
+    padding-top: 0px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -36,11 +37,12 @@
 }
 
 h5{
+    margin-top: 5px;
+    /* padding-top: 0px; */
     font-size: smaller;
     color: rgb(254, 254, 136);
     text-shadow: -4px 4px 6px black;
     text-align: center;
-    
     line-height: 1.2em; font-size: 10pt;
     margin-bottom: 2px;
     transition: text-shadow 0.5s ease-in-out;
