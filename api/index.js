@@ -27,6 +27,6 @@ const {PORT} = process.env;
 conn.sync({ force: false }).then(() => {
   saveCountriesToDb();
   server.listen(PORT, () => {
-    console.log('%s listening at 3001'); // eslint-disable-line no-console
+    console.log('server on port %s', PORT); // eslint-disable-line no-console
   });
 });
