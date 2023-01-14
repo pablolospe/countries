@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "node index.js",
+    "build": "npm run transpile && npm run bundle",
     "test": "mocha -w ./tests/**/*.spec.js"
   },
   "author": "Henry",
