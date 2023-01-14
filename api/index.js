@@ -24,8 +24,8 @@ const { saveCountriesToDb } = require('./src/controllers/controller.js')
 const {PORT} = process.env;
 
 // Syncing all the models at once.
-conn.sync().then(() => {
-  // saveCountriesToDb();
+conn.sync({ force: false }).then(() => {
+  saveCountriesToDb();
   server.listen(PORT, () => {
     console.log('server on port %s', PORT); // eslint-disable-line no-console
   });
