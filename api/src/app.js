@@ -9,7 +9,7 @@ require('./db.js');
 const server = express();
 const cors = require('cors');
 
-server.name = 'API';
+server.name = 'api';
 server.use(cors());
 
 server.use(bodyParser.urlencoded({ extended: true, limit: '50mb' }));
