@@ -21,12 +21,12 @@ require('dotenv').config();
 const server = require('./src/app.js');
 const { conn } = require('./src/db.js');
 const { saveCountriesToDb } = require('./src/controllers/controller.js')
-const {PORT} = process.env;
+const { PORT } = process.env;
 
 // Syncing all the models at once.
 conn.sync({ force: false }).then(() => {
-  saveCountriesToDb();
+  // saveCountriesToDb();
   server.listen(PORT, () => {
-    console.log('server on port %s', PORT); // eslint-disable-line no-console
+    console.log('%s listening at 3001'); // eslint-disable-line no-console
   });
 });
