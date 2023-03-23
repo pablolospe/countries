@@ -6,14 +6,19 @@ const router = Router();
 
 router.get('/', async (req, res) => {
     const { name } = req.query;
-    let allCountries = await getInfoDB();
-    if (name) {
-        let selectedCountry = await allCountries.filter(c => c.name.toLowerCase().includes(name.toLowerCase()));
-        selectedCountry.length ?
+    try {
+        
+        let allCountries = await getInfoDB();
+        if (name) {
+            let selectedCountry = await allCountries.filter(c => c.name.toLowerCase().includes(name.toLowerCase()));
+            selectedCountry.length ?
             res.status(200).send(selectedCountry) :
             res.status(404).send('Country not found');
-    } else {
-        res.status(200).send(allCountries)
+        } else {
+            res.status(200).send(allCountries)
+        }
+    } catch (error) {
+        res.status(404).send({ message: error.message });
     }
 })
 
