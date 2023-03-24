@@ -57,8 +57,10 @@ router.delete('/:id', async (req, res) => {
   try {
     const { id } = req.params;
     const activityToDelete = await Activity.findByPk(id);
-    await activityToDelete.destroy();
-    res.status(200).send(activityToDelete);
+    if (activityToDelete){
+      await activityToDelete.destroy();
+      res.status(200).send(`La clase de id ${id} fue borrada con éxito`)
+    } else {res.status(400).send(`No se encontró la actividad de id ${id}`)}
   } catch (error) {
     res.status(400).send(error.message);
   }

@@ -10,7 +10,7 @@ router.get('/', async (req, res) => {
         
         let allCountries = await getInfoDB();
         if (name) {
-            let selectedCountry = await allCountries.filter(c => c.name.toLowerCase().includes(name.toLowerCase()));
+            const selectedCountry = await allCountries.filter(c => c.name.toLowerCase().includes(name.toLowerCase()));
             selectedCountry.length ?
             res.status(200).send(selectedCountry) :
             res.status(404).send('Country not found');
@@ -39,6 +39,5 @@ router.get("/:id", async (req, res) => {
         res.status(404).send({ message: error.message });
     }
 });
-
 
 module.exports = router;
