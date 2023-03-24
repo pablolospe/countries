@@ -10,16 +10,18 @@ export default function About() {
             <div>
                 <br />
                 <br />
-               <h3 className={style.title}>About</h3>
-              
-               <p>Este proyecto fue realizado en el bootcamp de Soy HENRY</p>        
-               
-               <p>Posee una base de datos y filtros para navegar los diferentes paises del mundo y sus principales características</p>        
-               
-               <p>También permite crear actividades turísticas relacionadas con los países </p>
+               {/* <h3 className={style.title}>About</h3> */}
+                <br/>
+               <p className='p'>This project was developed during the Soy Henry bootcamp.</p>
+                <br/>
+
+               <p className='p'>It features a database and filters that allow users to navigate through different countries around the world and their main characteristics.</p>
+                <br/>
+
+               <p className='p'>Furthermore, it enables the creation of tourist activities related to these countries.</p>
                <br />
-               <br />
-               <p>Fue desarrollado por Pablo X. Lospennato en el mes de ocutbre de 2022</p>
+               
+               <p className='p'>This web app was developed by Pablo Xavier Lospennato in October 2022.</p>
                 <br />
                <button className={style.button} onClick={()=>history.goBack()}>BACK</button>
             </div>
