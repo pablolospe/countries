@@ -10,9 +10,10 @@ export default function SearchBar({ paginado, paginadoActiv }) {
   const handlerChange = (e) => {
     setCountryName(e.target.value);
   };
-
+  
   const handlerSubmit = (e) => {
     e.preventDefault();
+    document.getElementById("activity").getElementsByTagName('option')[0].selected = 'Select an activity'
     dispatch(getCountryName(countryName));
     paginadoActiv()
     paginado(1);

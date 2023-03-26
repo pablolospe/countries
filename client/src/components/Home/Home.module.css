@@ -1,6 +1,6 @@
 html { 
     opacity: 0.98;
-    background: url(../../fondoPizarron1.jpg) no-repeat center center fixed; 
+    background: url(../../fondoPizarron2.jpg) no-repeat center center fixed; 
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
@@ -25,7 +25,6 @@ body{
     display: flex;
     align-items: center;
     justify-content: center;
-    
 }
 
 .cards{
@@ -37,8 +36,8 @@ body{
 
 .card{
     display: flex;
-    opacity: 65%;
-    transition: opacity 0.8s;
+    opacity: 55%;
+    transition: opacity 0.4s;
     flex-basis: 18%;
   }
 
@@ -63,6 +62,4 @@ label{
 .warning{
     opacity: 60%;
     width: 330px;
-    /* border-radius: 50px;
-    box-shadow: -5px 5px 60px black; */
 }

@@ -13,6 +13,8 @@
     align-items: center;
 }
 .h1{
+    margin:50px;
+    border-radius: 50px;
     color: rgb(52, 52, 52);
     font-weight: bolder;
 }
@@ -32,13 +34,14 @@ p {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
+    
     justify-content: space-evenly;
     /* justify-items: center; */
-    
 }
 
 .card{
     /* border: solid 2px; */
+    margin: 10px;
     padding: 5px 25px;
     border-radius: 20px;
     box-shadow: -10px 10px 20px black;

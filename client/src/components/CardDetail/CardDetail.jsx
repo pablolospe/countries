@@ -45,7 +45,7 @@ export default function CardDetail(props) {
             {c.activities?.map((ac, pos) => (
               <div key={pos}>
               <li className={style.card} >
-                <p>You can {ac.name} in {ac.season}</p>
+                <p>You can do {ac.name} in {ac.season}</p>
                 <p>difficulty: {ac.difficulty}</p>
                 <p>duration: {ac.duration}</p>
               </li>

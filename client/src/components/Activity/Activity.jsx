@@ -26,11 +26,11 @@ export default function Activity({
         <button className={style.button} 
                 onClick={(e)=>handleDelete(e)}>
                   Delete Activity</button>
-        <p> ID: {id}</p>
-        <h3> Activity: {name}</h3>
+        <h2> {name}</h2>
         <p> Difficulty: {difficulty}</p>
         <p> Duration: {duration}</p>
         <p> Season: {season}</p>
+        <p> Activity Id: {id}</p>
         <div className={style.countries}>
           
           {countries.map((c) => (

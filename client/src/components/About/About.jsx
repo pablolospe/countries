@@ -10,7 +10,7 @@ export default function About() {
             <div>
                 <br />
                 <br />
-               {/* <h3 className={style.title}>About</h3> */}
+               <h3 className={style.title}>About</h3>
                 <br/>
                <p className='p'>This project was developed during the Soy Henry bootcamp.</p>
                 <br/>
