@@ -1,6 +1,5 @@
 const { Router } = require('express');
 const { getInfoDB } = require('../controllers/controller');
-const { Country, Activity } = require('../db.js');
 
 const router = Router();
 
@@ -28,9 +27,7 @@ router.get("/:id", async (req, res) => {
     try {
         if (id) {
             let countryId = await countriesDb.filter(c => c.id === id)
-            const activ = await Activity.findAll({
-                where: { name: id }
-            })
+
             countryId.length ?
                 res.status(200).json(countryId) :
                 res.status(400).send('Country not found')

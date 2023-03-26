@@ -23,7 +23,7 @@ export default function Home(props) {
   
   const allCountries = useSelector((state) => state.currentCountries);
   const allActivities = useSelector((state) => state.activities);
-  const [order, setOrder] = useState();
+  // const [order, setOrder] = useState();
   const [currentPage, setCurrentPage] = useState(1);
   const [countriesPerPage, setCountriesPerPage] = useState(9.99);
   
@@ -67,6 +67,7 @@ export default function Home(props) {
 
   function handleSelect(e) {
     e.preventDefault();
+    document.getElementById("order").getElementsByTagName('option')[0].selected = 'Order by...'
     dispatch(filterCountriesByRegion(e.target.value));
     paginadoActiv()
     paginado(1);
@@ -75,7 +76,7 @@ export default function Home(props) {
   function handleSort(e) {
     e.preventDefault();
     dispatch(sort(e.target.value));
-    setOrder(e.target.value);
+    // setOrder(e.target.value);
     paginadoActiv()
     paginado(1);
   }

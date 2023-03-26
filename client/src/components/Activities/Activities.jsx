@@ -13,7 +13,7 @@ export default function Activities({props, id,name,difficulty,duration,season}) 
 
   useEffect(() => {
     dispatch(getAllActivities());
-  }, [dispatch]);
+  }, [dispatch, allActivities]);
   
   return (
     <>

@@ -20,19 +20,21 @@ export default function CardDetail(props) {
     <div>
       <button className={style.back} onClick={()=>history.goBack()}>BACK</button>
       {
-      detail?.map((c, pos) => (
-          <div key={pos} className={style.carddetail}>
-            <div>  
-              <h1 className={style.h1}>{c.name}</h1>
-              <img className={style.flag} src={c.flag} alt='flag' />
-            </div>
-            <div> 
-              <p>ID: {c.id}</p>
-              <p>Capital City: {c.capital}</p>
-              <p>Continent: {c.region}</p>
-              <p>Sub-Region: {c.subregion}</p>
-              <p>Area: {c.area.toLocaleString()} km²</p>
-              <p>Population: {c.population.toLocaleString()}</p>
+        detail?.map((c, pos) => (
+          <div key={pos} >
+            <h1 className={style.h1}>{c.name}</h1>
+            <div className={style.carddetail} >
+              <div>  
+                <img className={style.flag} src={c.flag} alt='flag' />
+              </div>
+              <div> 
+                <p>ID: {c.id}</p>
+                <p>Capital City: {c.capital}</p>
+                <p>Continent: {c.region}</p>
+                <p>Sub-Region: {c.subregion}</p>
+                <p>Area: {c.area.toLocaleString()} km²</p>
+                <p>Population: {c.population.toLocaleString()}</p>
+              </div>
             </div>
           <div>
 
