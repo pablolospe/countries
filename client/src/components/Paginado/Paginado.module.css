@@ -1,12 +1,12 @@
 
 button{
-  opacity: 85%;
-  transition: opacity 0.2s;
+  /* opacity: 85%; */
+  transition: background-color 0.2s;
   flex-basis: 18%;
 }
 
 button:hover{
-  font-weight:600;
+  background-color: rgb(255, 255, 255);
   opacity: 100%;
 } 
 
